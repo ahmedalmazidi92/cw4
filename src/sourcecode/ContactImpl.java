@@ -6,8 +6,14 @@ public class ContactImpl implements Contact{
 	private String name;
 	private String notes;
 
-	public ContactImpl() {
+	public ContactImpl(String name, String notes) {
+		this.name = name;
+		this.notes = notes;
+	}
 	
+	public ContactImpl(String name) {
+		this.name = name;
+		this.notes = "";
 	}
 
 	public int getId() {
@@ -23,7 +29,7 @@ public class ContactImpl implements Contact{
 	}
 
 	public void addNotes(String note) {
-		// TODO Auto-generated method stub
+		this.notes = note;
 		
 	}
 
