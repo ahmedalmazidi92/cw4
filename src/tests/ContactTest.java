@@ -1,4 +1,4 @@
-
+package tests;
 import interfaces.Contact;
 import org.junit.*;
 import sourcecode.ContactImpl;
@@ -74,7 +74,7 @@ public class ContactTest {
 	}
 	
 	@Test
-	public void testAddNotes() {
+	public void testAddNotes() { //works
 		String expected = "Test";
 		test1.addNotes(expected);
 		String actual = test1.getNotes();
