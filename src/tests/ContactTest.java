@@ -37,24 +37,24 @@ public class ContactTest {
 		assertEquals(expected, actual);
 	}
 	
-	//@Test
-	//public void testID() {
-		//int expected = 1;
-		//int actual = test1.getId();
-		//assertEquals(expected, actual);
+	@Test
+	public void testID() {
+		int expected = 1;
+		int actual = test1.getId();
+		assertEquals(expected, actual);
 		
-		//expected = 2;
-		//actual = test2.getId();
-		//assertEquals(expected, actual);
+		expected = 2;
+		actual = test2.getId();
+		assertEquals(expected, actual);
 		
-		//expected = 3;
-		//actual = test3.getId();
-		//assertEquals(expected, actual);
+		expected = 3;
+		actual = test3.getId();
+		assertEquals(expected, actual);
 		
-		//expected = 4;
-		//actual = test4.getId();
-		//assertEquals(expected, actual);
-	//}
+		expected = 4;
+		actual = test4.getId();
+		assertEquals(expected, actual);
+	}
 	
 	//@Test
 	//public void testNotes() {
