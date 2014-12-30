@@ -12,8 +12,6 @@ public class ContactImpl implements Contact{
 		this.notes = notes;
 		count++;
 		this.id = count;
-		System.out.println(name);
-		System.out.println(count);
 	}
 	
 	public ContactImpl(String name) {
@@ -21,8 +19,6 @@ public class ContactImpl implements Contact{
 		this.notes = "";
 		count++;
 		this.id = count;
-		System.out.println(name);
-		System.out.println(count);
 	}
 
 	public int getId() {
