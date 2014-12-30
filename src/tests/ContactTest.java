@@ -9,7 +9,13 @@ public class ContactTest {
 	private Contact test2 = new ContactImpl("Nick Frost", "Shaun of the Dead");
 	private Contact test3 = new ContactImpl("Edgar Wright", "Hot Fuzz");
 	private Contact test4 = new ContactImpl("Scott Pilgrim");
-		
+	
+	@After
+	public void cleanUp() {
+		ContactImpl.count = 0;
+	}
+	
+	
 	@Test
 	public void testName() { //works
 		String expected = "Simon Pegg";
@@ -30,7 +36,7 @@ public class ContactTest {
 	}
 	
 	@Test
-	public void testID() {
+	public void testID() { //works
 		int expected = 1;
 		int actual = test1.getId();
 		assertEquals(expected, actual);
