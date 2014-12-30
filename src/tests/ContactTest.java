@@ -1,9 +1,23 @@
 package tests;
+import interfaces.Contact;
+import sourcecode.ContactImpl;
+
+import org.junit.*;
+import static org.junit.Assert.*;
 
 public class ContactTest {
-
-	public ContactTest() {
-		// TODO Auto-generated constructor stub
+	private Contact test1;
+	private Contact test2;
+	private Contact test3;
+	private Contact test4;
+	
+	@Before
+	public void buildUp() {
+		test1 = new ContactImpl("Simon Pegg");
+		test2 = new ContactImpl("Nick Frost", "Shaun of the Dead");
+		test3 = new ContactImpl("Edgar Wright", "Hot Fuzz");
+		test4 = new ContactImpl("Scott Pilgrim");
 	}
+
 
 }
