@@ -21,19 +21,38 @@ public class ContactTest {
 	@Test
 	public void testName() {
 		String expected = "Simon Pegg";
-		String output = test1.getName();
-		assertEquals(expected, output);
+		String actual = test1.getName();
+		assertEquals(expected, actual);
 		
 		expected = "Nick Frost";
-		output = test2.getName();
-		assertEquals(expected, output);
+		actual = test2.getName();
+		assertEquals(expected, actual);
 		
 		expected = "Edgar Wright";
-		output = test3.getName();
-		assertEquals(expected, output);
+		actual = test3.getName();
+		assertEquals(expected, actual);
 		
 		expected = "Scott Pilgrim";
-		output = test4.getName();
-		assertEquals(expected, output);
+		actual = test4.getName();
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testID() {
+		int expected = 1;
+		int actual = test1.getId();
+		assertEquals(expected, actual);
+		
+		expected = 2;
+		actual = test2.getId();
+		assertEquals(expected, actual);
+		
+		expected = 3;
+		actual = test3.getId();
+		assertEquals(expected, actual);
+		
+		expected = 4;
+		actual = test4.getId();
+		assertEquals(expected, actual);
 	}
 }
