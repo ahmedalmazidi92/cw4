@@ -1,23 +1,15 @@
-package tests;
+
 import interfaces.Contact;
 import org.junit.*;
 import sourcecode.ContactImpl;
 import static org.junit.Assert.*;
 
 public class ContactTest {
-	private Contact test1;
-	private Contact test2;
-	private Contact test3;
-	private Contact test4;
-	
-	@Before
-	public void buildUp() {
-		test1 = new ContactImpl("Simon Pegg");
-		test2 = new ContactImpl("Nick Frost", "Shaun of the Dead");
-		test3 = new ContactImpl("Edgar Wright", "Hot Fuzz");
-		test4 = new ContactImpl("Scott Pilgrim");
-	}
-	
+	private Contact test1 = new ContactImpl("Simon Pegg");
+	private Contact test2 = new ContactImpl("Nick Frost", "Shaun of the Dead");
+	private Contact test3 = new ContactImpl("Edgar Wright", "Hot Fuzz");
+	private Contact test4 = new ContactImpl("Scott Pilgrim");
+		
 	@Test
 	public void testName() { //works
 		String expected = "Simon Pegg";
