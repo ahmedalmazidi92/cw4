@@ -55,4 +55,21 @@ public class ContactTest {
 		actual = test4.getId();
 		assertEquals(expected, actual);
 	}
+	
+	@Test
+	public void testNotes() {
+		String actual = test1.getNotes();
+		assertNull(actual);
+		
+		String expected = "Shaun of the Dead";
+		actual = test2.getNotes();
+		assertEquals(expected, actual);
+		
+		expected = "Hot Fuzz";
+		actual = test3.getNotes();
+		assertEquals(expected, actual);
+		
+		actual = test4.getNotes();
+		assertNull(actual);
+	}
 }
