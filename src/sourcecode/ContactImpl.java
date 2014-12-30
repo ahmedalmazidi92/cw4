@@ -2,30 +2,26 @@ package sourcecode;
 import interfaces.Contact;
 
 public class ContactImpl implements Contact{
+	private int id;
+	private String name;
+	private String notes;
 
 	public ContactImpl() {
-		// TODO Auto-generated constructor stub
+	
 	}
 
-	@Override
 	public int getId() {
-		// TODO Auto-generated method stub
-		return 0;
+		return id;
 	}
 
-	@Override
 	public String getName() {
-		// TODO Auto-generated method stub
-		return null;
+		return name;
 	}
 
-	@Override
 	public String getNotes() {
-		// TODO Auto-generated method stub
-		return null;
+		return notes;
 	}
 
-	@Override
 	public void addNotes(String note) {
 		// TODO Auto-generated method stub
 		
