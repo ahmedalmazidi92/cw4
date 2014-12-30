@@ -2,6 +2,7 @@ package tests;
 import java.util.Calendar;
 import java.util.Set;
 import interfaces.Meeting;
+import sourcecode.MeetingImpl;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
