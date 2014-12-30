@@ -37,39 +37,39 @@ public class ContactTest {
 		assertEquals(expected, actual);
 	}
 	
-	@Test
-	public void testID() {
-		int expected = 1;
-		int actual = test1.getId();
-		assertEquals(expected, actual);
+	//@Test
+	//public void testID() {
+		//int expected = 1;
+		//int actual = test1.getId();
+		//assertEquals(expected, actual);
 		
-		expected = 2;
-		actual = test2.getId();
-		assertEquals(expected, actual);
+		//expected = 2;
+		//actual = test2.getId();
+		//assertEquals(expected, actual);
 		
-		expected = 3;
-		actual = test3.getId();
-		assertEquals(expected, actual);
+		//expected = 3;
+		//actual = test3.getId();
+		//assertEquals(expected, actual);
 		
-		expected = 4;
-		actual = test4.getId();
-		assertEquals(expected, actual);
-	}
+		//expected = 4;
+		//actual = test4.getId();
+		//assertEquals(expected, actual);
+	//}
 	
-	@Test
-	public void testNotes() {
-		String actual = test1.getNotes();
-		assertNull(actual);
+	//@Test
+	//public void testNotes() {
+		//String actual = test1.getNotes();
+		//assertNull(actual);
 		
-		String expected = "Shaun of the Dead";
-		actual = test2.getNotes();
-		assertEquals(expected, actual);
+		//String expected = "Shaun of the Dead";
+		//actual = test2.getNotes();
+		//assertEquals(expected, actual);
 		
-		expected = "Hot Fuzz";
-		actual = test3.getNotes();
-		assertEquals(expected, actual);
+		//expected = "Hot Fuzz";
+		//actual = test3.getNotes();
+		//assertEquals(expected, actual);
 		
-		actual = test4.getNotes();
-		assertNull(actual);
-	}
+		//actual = test4.getNotes();
+		//assertNull(actual);
+	//}
 }
