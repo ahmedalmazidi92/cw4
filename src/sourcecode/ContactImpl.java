@@ -5,7 +5,7 @@ public class ContactImpl implements Contact{
 	private int id;
 	private String name;
 	private String notes;
-	private static int count = 0;
+	public static int count = 0;
 
 	public ContactImpl(String name, String notes) {
 		this.name = name;
@@ -37,5 +37,7 @@ public class ContactImpl implements Contact{
 		this.notes = note;
 		
 	}
+	
+	
 
 }
