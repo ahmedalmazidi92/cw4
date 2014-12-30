@@ -55,7 +55,7 @@ public class ContactTest {
 	}
 	
 	@Test
-	public void testNotes() {
+	public void testNotes() { //works
 		String expected = "";
 		String actual = test1.getNotes();
 		assertEquals(expected, actual);
@@ -69,6 +69,29 @@ public class ContactTest {
 		assertEquals(expected, actual);
 		
 		expected = "";
+		actual = test4.getNotes();
+		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testAddNotes() {
+		String expected = "Test";
+		test1.addNotes(expected);
+		String actual = test1.getNotes();
+		assertEquals(expected, actual);
+		
+		expected = "";
+		test2.addNotes(expected);
+		actual = test2.getNotes();
+		assertEquals(expected, actual);
+		
+		expected = "second test";
+		test3.addNotes(expected);
+		actual = test3.getNotes();
+		assertEquals(expected, actual);
+		
+		expected = "The L word";
+		test4.addNotes(expected);
 		actual = test4.getNotes();
 		assertEquals(expected, actual);
 	}
