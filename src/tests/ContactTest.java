@@ -1,7 +1,7 @@
 package tests;
 import interfaces.Contact;
-import sourcecode.ContactImpl;
 import org.junit.*;
+import sourcecode.ContactImpl;
 import static org.junit.Assert.*;
 
 public class ContactTest {
@@ -19,7 +19,7 @@ public class ContactTest {
 	}
 	
 	@Test
-	public void testName() {
+	public void testName() { //works
 		String expected = "Simon Pegg";
 		String actual = test1.getName();
 		assertEquals(expected, actual);
