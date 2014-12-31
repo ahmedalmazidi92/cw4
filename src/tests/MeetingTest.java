@@ -72,5 +72,24 @@ public class MeetingTest {
 		actual = test4.getId();
 		assertEquals(expected, actual);
 	}
+	
+	@Test
+	public void testDate() {
+		Calendar expected = new GregorianCalendar(2014, 11, 5);
+		Calendar actual = test1.getDate();
+		assertEquals(expected, actual);
+		
+		expected = new GregorianCalendar(2014, 12, 25);
+		actual = test2.getDate();
+		assertEquals(expected, actual);
+		
+		expected = new GregorianCalendar(2014, 12, 31);
+		actual = test3.getDate();
+		assertEquals(expected, actual);
+		
+		expected = new GregorianCalendar(2015, 1, 1);
+		actual = test4.getDate();
+		assertEquals(expected, actual);
+	}
 
 }
