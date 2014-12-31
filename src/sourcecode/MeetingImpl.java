@@ -1,7 +1,9 @@
 package sourcecode;
 
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.Set;
+
 import interfaces.Contact;
 import interfaces.Meeting;
 
@@ -11,7 +13,7 @@ public class MeetingImpl implements Meeting {
 	private Set<Contact> contacts;
 	public static int count = 0;
 	
-	public MeetingImpl(Calendar date, Set<Contact> contacts) {
+	public MeetingImpl(GregorianCalendar date, Set<Contact> contacts) {
 		count++;
 		this.date = date;
 		this.contacts = contacts;
