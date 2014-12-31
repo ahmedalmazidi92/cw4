@@ -44,9 +44,15 @@ public class MeetingTest {
 		date3 = new GregorianCalendar(2014, 12, 31);
 		date4 = new GregorianCalendar(2015, 1, 1);
 		test1 = new MeetingImpl(date1, contacts1);
-		
+		test2 = new MeetingImpl(date2, contacts2);
+		test3 = new MeetingImpl(date3, contacts3);
+		test4 = new MeetingImpl(date4, contacts4);
 	}
 	
+	@After
+	public void cleanUp() {
+		MeetingImpl.count = 0;
+	}
 	@Test
 	public void testID() {
 		int expected = 1;
