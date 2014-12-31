@@ -13,7 +13,7 @@ public class MeetingImpl implements Meeting {
 	private Set<Contact> contacts;
 	public static int count = 0;
 	
-	public MeetingImpl(GregorianCalendar date, Set<Contact> contacts) {
+	public MeetingImpl(Calendar date, Set<Contact> contacts) {
 		count++;
 		this.date = date;
 		this.contacts = contacts;
