@@ -22,8 +22,7 @@ public class MeetingImpl implements Meeting {
 		return id;
 	}
 	public Calendar getDate() {
-		// TODO Auto-generated method stub
-		return null;
+		return date;
 	}
 	public Set<Contact> getContacts() {
 		// TODO Auto-generated method stub
