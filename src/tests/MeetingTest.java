@@ -1,4 +1,4 @@
-
+package tests;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.HashSet;
@@ -93,7 +93,7 @@ public class MeetingTest {
 	}
 	
 	@Test
-	public void testContacts() {
+	public void testContacts() { //works
 		Set<Contact> expected = contacts1;
 		Set<Contact> actual = test1.getContacts();
 		assertEquals(expected, actual);
