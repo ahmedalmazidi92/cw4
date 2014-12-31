@@ -55,7 +55,7 @@ public class MeetingTest {
 		MeetingImpl.count = 0;
 	}
 	@Test
-	public void testID() {
+	public void testID() { //works
 		int expected = 1;
 		int actual = test1.getId();
 		assertEquals(expected, actual);
