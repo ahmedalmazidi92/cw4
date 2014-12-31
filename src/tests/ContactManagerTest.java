@@ -4,7 +4,7 @@ import interfaces.ContactManager;
 import interfaces.Meeting;
 
 import org.junit.*;
-import org.junit.Assert.*;
+import static org.junit.Assert.*;
 
 import sourcecode.ContactImpl;
 import sourcecode.FutureMeetingImpl;
@@ -51,7 +51,9 @@ public class ContactManagerTest {
 	
 	@Test
 	public void testAddFutureMeeting() {
-		test1.addFutureMeeting(contacts1, )
+		int expected = 1;
+		int actual = test1.addFutureMeeting(contacts1, date1);
+		assertEquals(expected, actual);
 	}
 
 }
