@@ -27,7 +27,9 @@ public class ContactManagerTest {
 	private Contact edgar;
 	private Contact scott;
 
-	public ContactManagerTest() {
+	@Before
+	public void buildUp() {
+		test1 = new ContactManagerImpl();
 		simon = new ContactImpl("Simon Pegg", "Recovering from Paul");
 		nick = new ContactImpl("Nick Frost", "Also recovering from Paul");
 		edgar = new ContactImpl("Edgar Wright", "Is glad to not have worked on Paul");
@@ -45,6 +47,11 @@ public class ContactManagerTest {
 	public void cleanUp() {
 		MeetingImpl.count = 0;
 		ContactImpl.count = 0;
+	}
+	
+	@Test
+	public void testAddFutureMeeting() {
+		test1.addFutureMeeting(contacts1, )
 	}
 
 }
