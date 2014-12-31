@@ -114,7 +114,7 @@ public class MeetingTest {
 	}
 	
 	@Test
-	public void testNotes() {
+	public void testNotes() { //works
 		PastMeeting xtraTest1 = new PastMeetingImpl(date1, contacts1);
 		String expected = "";
 		String actual = ((PastMeetingImpl)xtraTest1).getNotes();
