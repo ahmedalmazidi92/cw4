@@ -16,13 +16,20 @@ public class MeetingTest {
 	private Meeting test2; 
 	private Meeting test3;
 	private Meeting test4;
-	private Set<Contact> contacts;
-	private Calendar date;
+	private Set<Contact> contacts1;
+	private Set<Contact> contacts2;
+	private Set<Contact> contacts3;
+	private Set<Contact> contacts4;
+	private Calendar date1;
+	private Calendar date2;
+	private Calendar date3;
+	private Calendar date4;
 	
 	@Before
 	public void buildUp() {
-		contacts.add(new ContactImpl("Simon Pegg"));
-		contacts.add(new ContactImpl("Nick Frost"));
+		contacts1.add(new ContactImpl("Simon Pegg"));
+		contacts1.add(new ContactImpl("Nick Frost"));
+		
 	}
 	
 	@Test
