@@ -74,7 +74,7 @@ public class MeetingTest {
 	}
 	
 	@Test
-	public void testDate() {
+	public void testDate() { //works
 		Calendar expected = new GregorianCalendar(2014, 11, 5);
 		Calendar actual = test1.getDate();
 		assertEquals(expected, actual);
