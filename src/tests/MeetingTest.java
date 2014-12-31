@@ -9,6 +9,7 @@ import interfaces.Meeting;
 import interfaces.PastMeeting;
 import sourcecode.ContactImpl;
 import sourcecode.MeetingImpl;
+import sourcecode.PastMeetingImpl;
 import static org.junit.Assert.*;
 
 import org.junit.*;
@@ -116,12 +117,12 @@ public class MeetingTest {
 	public void testNotes() {
 		PastMeeting xtraTest1 = new PastMeetingImpl(date1, contacts1);
 		String expected = "";
-		String actual = "";
+		String actual = ((PastMeetingImpl)xtraTest1).getNotes();
 		assertEquals(expected, actual);
 		
 		PastMeeting xtraTest2 = new PastMeetingImpl(date2, contacts2);
 		expected = "Creative difference, find new director";
-		xtraTest2.addNotes(expected);
+		((PastMeetingImpl) xtraTest2).addNotes(expected);
 		actual = xtraTest2.getNotes();
 		assertEquals(expected, actual);
 		
