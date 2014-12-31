@@ -6,6 +6,7 @@ import java.util.Set;
 
 import interfaces.Contact;
 import interfaces.Meeting;
+import interfaces.PastMeeting;
 import sourcecode.ContactImpl;
 import sourcecode.MeetingImpl;
 import static org.junit.Assert.*;
@@ -109,6 +110,21 @@ public class MeetingTest {
 		expected = contacts4;
 		actual = test4.getContacts();
 		assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testNotes() {
+		PastMeeting xtraTest1 = new PastMeetingImpl(date1, contacts1);
+		String expected = "";
+		String actual = "";
+		assertEquals(expected, actual);
+		
+		PastMeeting xtraTest2 = new PastMeetingImpl(date2, contacts2);
+		expected = "Creative difference, find new director";
+		xtraTest2.addNotes(expected);
+		actual = xtraTest2.getNotes();
+		assertEquals(expected, actual);
+		
 	}
 
 }
