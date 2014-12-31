@@ -91,5 +91,24 @@ public class MeetingTest {
 		actual = test4.getDate();
 		assertEquals(expected, actual);
 	}
+	
+	@Test
+	public void testContacts() {
+		Set<Contact> expected = contacts1;
+		Set<Contact> actual = test1.getContacts();
+		assertEquals(expected, actual);
+		
+		expected = contacts2;
+		actual = test2.getContacts();
+		assertEquals(expected, actual);
+		
+		expected = contacts3;
+		actual = test3.getContacts();
+		assertEquals(expected, actual);
+		
+		expected = contacts4;
+		actual = test4.getContacts();
+		assertEquals(expected, actual);
+	}
 
 }
