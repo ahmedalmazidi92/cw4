@@ -24,11 +24,26 @@ public class MeetingTest {
 	private Calendar date2;
 	private Calendar date3;
 	private Calendar date4;
+	private Contact simon = new ContactImpl("Simon Pegg");
+	private Contact nick = new ContactImpl("Nick Frost");
+	private Contact edgar = new ContactImpl("Edgar Wright", "Antman");
+	private Contact marvel = new ContactImpl("Marvel Execs", "Thoughts about changing director");
 	
 	@Before
 	public void buildUp() {
-		contacts1.add(new ContactImpl("Simon Pegg"));
-		contacts1.add(new ContactImpl("Nick Frost"));
+		contacts1.add(simon);
+		contacts1.add(nick);
+		contacts2.add(edgar);
+		contacts2.add(marvel);
+		contacts3.add(simon);
+		contacts3.add(edgar);
+		contacts4.add(nick);
+		contacts4.add(marvel);
+		date1 = new GregorianCalendar(2014, 11, 5);
+		date2 = new GregorianCalendar(2014, 12, 25);
+		date3 = new GregorianCalendar(2014, 12, 31);
+		date4 = new GregorianCalendar(2015, 1, 1);
+		test1 = new MeetingImpl(date1, contacts1);
 		
 	}
 	
