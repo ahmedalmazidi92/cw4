@@ -1,12 +1,13 @@
-package tests;
+
 import interfaces.Contact;
 import interfaces.ContactManager;
 import interfaces.Meeting;
 
 import org.junit.*;
-import static org.junit.Assert.*;
 
+import static org.junit.Assert.*;
 import sourcecode.ContactImpl;
+import sourcecode.ContactManagerImpl;
 import sourcecode.FutureMeetingImpl;
 import sourcecode.MeetingImpl;
 
@@ -19,7 +20,6 @@ import interfaces.FutureMeeting;
 
 public class ContactManagerTest {
 	private ContactManager test1;
-	private Meeting meeting1;
 	private Calendar date1;
 	private Set<Contact> contacts1;
 	private Contact simon;
@@ -40,7 +40,6 @@ public class ContactManagerTest {
 		contacts1.add(nick);
 		contacts1.add(edgar);
 		contacts1.add(scott);
-		meeting1 = new FutureMeetingImpl(date1, contacts1);
 	}
 	
 	@After
