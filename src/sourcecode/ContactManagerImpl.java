@@ -87,11 +87,11 @@ public class ContactManagerImpl implements ContactManager {
 
 	@Override
 	public void addNewContact(String name, String notes) {
-		try {
+		if (name == null || notes == null) {
+			throw new NullPointerException("Name and/or Notes are null");
+		}else {
 			Contact newContact = new ContactImpl(name, notes);
 			contacts.add(newContact);
-		} catch (NullPointerException ex) {
-			System.out.println("Name and/or notes are null");
 		}
 		
 	}
