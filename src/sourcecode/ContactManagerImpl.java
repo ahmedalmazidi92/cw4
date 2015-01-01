@@ -95,6 +95,10 @@ public class ContactManagerImpl implements ContactManager {
 		}
 		
 	}
+	
+	public boolean isEmpty() {
+		return contacts.isEmpty();
+	}
 
 	@Override
 	public Set<Contact> getContacts(int... ids) {
