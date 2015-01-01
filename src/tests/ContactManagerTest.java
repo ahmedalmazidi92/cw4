@@ -48,22 +48,30 @@ public class ContactManagerTest {
 		ContactImpl.count = 0;
 	}
 	
-	@Test
-	public void testAddFutureMeeting() { //works
-		int expected = 1;
-		int actual = test1.addFutureMeeting(contacts, date1);
-		assertEquals(expected, actual);
-	}
+	//@Test
+	//public void testAddFutureMeeting() { //works
+		//int expected = 1;
+		//int actual = test1.addFutureMeeting(contacts, date1);
+		//assertEquals(expected, actual);
+	//}
 	
-	@Test(expected = IllegalArgumentException.class) //works
-	public void testInvalidDate() {
-		date1 = new GregorianCalendar(2013, 1, 1);
-		test1.addFutureMeeting(contacts, date1);
-	}
+	//@Test(expected = IllegalArgumentException.class) //works
+	//public void testInvalidDate() {
+		//date1 = new GregorianCalendar(2013, 1, 1);
+		//test1.addFutureMeeting(contacts, date1);
+	//}
 	
-	@Test(expected = IllegalArgumentException.class)
-	public void testInvalidContact() {
+	//@Test(expected = IllegalArgumentException.class)
+	//public void testInvalidContact() {
 		
+	//}
+	
+	@Test
+	public void testAddContacts() {
+		String name = "Simon";
+		String notes = "Test";
+		test1.addNewContact(name, notes);
+		assertTrue(test1.isEmpty());
 	}
 
 }
