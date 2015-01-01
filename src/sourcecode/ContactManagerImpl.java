@@ -31,7 +31,8 @@ public class ContactManagerImpl implements ContactManager {
 		} else if  (currentDate.before(date)) {
 			throw new IllegalArgumentException("Please use an appropriate date");
 		} else {
-			
+			FutureMeeting result = new FutureMeetingImpl(date, contacts);
+			return result.getId();
 		}
 	}
 
