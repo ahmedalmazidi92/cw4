@@ -21,7 +21,7 @@ import interfaces.FutureMeeting;
 public class ContactManagerTest {
 	private ContactManager test1;
 	private Calendar date1;
-	private Set<Contact> contacts1;
+	private Set<Contact> contacts;
 	private Contact simon;
 	private Contact nick;
 	private Contact edgar;
@@ -35,11 +35,11 @@ public class ContactManagerTest {
 		edgar = new ContactImpl("Edgar Wright", "Is glad to not have worked on Paul");
 		scott = new ContactImpl("Scott Pilgrim");
 		date1 = new GregorianCalendar(2015, 03, 05);
-		contacts1 = new HashSet<Contact>();
-		contacts1.add(simon);
-		contacts1.add(nick);
-		contacts1.add(edgar);
-		contacts1.add(scott);
+		contacts = new HashSet<Contact>();
+		contacts.add(simon);
+		contacts.add(nick);
+		contacts.add(edgar);
+		contacts.add(scott);
 	}
 	
 	@After
@@ -51,14 +51,19 @@ public class ContactManagerTest {
 	@Test
 	public void testAddFutureMeeting() { //works
 		int expected = 1;
-		int actual = test1.addFutureMeeting(contacts1, date1);
+		int actual = test1.addFutureMeeting(contacts, date1);
 		assertEquals(expected, actual);
 	}
 	
-	@Test(expected = IllegalArgumentException.class)
+	@Test(expected = IllegalArgumentException.class) //works
 	public void testInvalidDate() {
 		date1 = new GregorianCalendar(2013, 1, 1);
-		test1.addFutureMeeting(contacts1, date1);
+		test1.addFutureMeeting(contacts, date1);
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testInvalidContact() {
+		
 	}
 
 }
