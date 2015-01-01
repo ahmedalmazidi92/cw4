@@ -67,7 +67,7 @@ public class ContactManagerTest {
 	//}
 	
 	@Test
-	public void testAddContacts() {
+	public void testAddContacts() { //works
 		String name = "Simon";
 		String notes = "Test";
 		test1.addNewContact(name, notes);
