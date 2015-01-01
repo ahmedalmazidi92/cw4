@@ -26,7 +26,7 @@ public class ContactManagerImpl implements ContactManager {
 
 	@Override
 	public int addFutureMeeting(Set<Contact> contacts, Calendar date) {
-		if (this.contacts.contains(contacts)) {
+		if (!this.contacts.contains(contacts)) {
 			throw new IllegalArgumentException("Unknown/Non-existant contacts");
 		} else if  (date.before(currentDate)) {
 			throw new IllegalArgumentException("Please use an appropriate date");
@@ -87,7 +87,12 @@ public class ContactManagerImpl implements ContactManager {
 
 	@Override
 	public void addNewContact(String name, String notes) {
-		// TODO Auto-generated method stub
+		try {
+			Contact newContact = new ContactImpl(name, notes);
+			contacts.add(newContact);
+		} catch (NullPointerException ex) {
+			System.out.println("Name and/or notes are null");
+		}
 		
 	}
 
