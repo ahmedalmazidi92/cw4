@@ -74,7 +74,7 @@ public class ContactManagerTest {
 		assertFalse(((ContactManagerImpl)test1).isEmpty());
 	}
 	
-	@Test(expected = NullPointerException.class)
+	@Test(expected = NullPointerException.class) //works
 	public void testForNullPointerException() {
 		test1.addNewContact(null, null);
 	}
