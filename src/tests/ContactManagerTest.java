@@ -71,7 +71,7 @@ public class ContactManagerTest {
 		String name = "Simon";
 		String notes = "Test";
 		test1.addNewContact(name, notes);
-		assertFalse(test1.isEmpty());
+		assertFalse(((ContactManagerImpl)test1).isEmpty());
 	}
 
 }
