@@ -1,6 +1,9 @@
 package sourcecode;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -11,15 +14,25 @@ import interfaces.Meeting;
 import interfaces.PastMeeting;
 
 public class ContactManagerImpl implements ContactManager {
-
+	private Set<Contact> contacts;
+	private List<Meeting> meetings;
+	private Calendar currentDate;
+	
 	public ContactManagerImpl() {
-		// TODO Auto-generated constructor stub
+		this.contacts = new HashSet<Contact>();
+		this.meetings = new ArrayList<Meeting>();
+		this.currentDate = new GregorianCalendar();
 	}
 
 	@Override
 	public int addFutureMeeting(Set<Contact> contacts, Calendar date) {
-		// TODO Auto-generated method stub
-		return 0;
+		if (this.contacts.contains(contacts)) {
+			throw new IllegalArgumentException("Unknown/Non-existant contacts");
+		} else if  (currentDate.before(date)) {
+			throw new IllegalArgumentException("Please use an appropriate date");
+		} else {
+			
+		}
 	}
 
 	@Override
