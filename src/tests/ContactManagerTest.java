@@ -54,5 +54,11 @@ public class ContactManagerTest {
 		int actual = test1.addFutureMeeting(contacts1, date1);
 		assertEquals(expected, actual);
 	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testInvalidDate() {
+		date1 = new GregorianCalendar(2013, 1, 1);
+		test1.addFutureMeeting(contacts1, date1);
+	}
 
 }
