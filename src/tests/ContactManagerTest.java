@@ -49,7 +49,7 @@ public class ContactManagerTest {
 	}
 	
 	@Test
-	public void testAddFutureMeeting() {
+	public void testAddFutureMeeting() { //works
 		int expected = 1;
 		int actual = test1.addFutureMeeting(contacts1, date1);
 		assertEquals(expected, actual);
