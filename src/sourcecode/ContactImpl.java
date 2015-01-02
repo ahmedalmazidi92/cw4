@@ -35,7 +35,10 @@ public class ContactImpl implements Contact{
 	public boolean equals(Object contact){
 		if (contact instanceof Contact) {
 			Contact result =  (Contact) contact;
-			if(result.getName() == this.getName() && result.getNotes() == this.getNotes() && result.getId() == this.getId())
+			return (result.getName() == this.getName() && result.getNotes() == this.getNotes() && result.getId() == this.getId() ? true : false);
+		}else{
+			return false;
 		}
+	}
 
 }
