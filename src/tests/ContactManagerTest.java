@@ -21,6 +21,7 @@ import interfaces.FutureMeeting;
 public class ContactManagerTest {
 	private ContactManager test1;
 	private Calendar date1;
+	private Set<Contact> contacts;
 
 	@Before
 	public void buildUp() {
@@ -35,13 +36,16 @@ public class ContactManagerTest {
 	}
 	
 	@Test
-	public void testAddFutureMeeting() { //works
+	public void testAddFutureMeeting() { 
+		Contact simon = new ContactImpl("Simon Pegg", "Still recovering from Paul");
+		contacts.add(simon);
+		test1.addNewContact(simon); //New method to be implemented		
 		int expected = 1;
 		int actual = test1.addFutureMeeting(contacts, date1);
 		assertEquals(expected, actual);
 	}
 	
-	@Test(expected = IllegalArgumentException.class) //works
+	@Test(expected = IllegalArgumentException.class) 
 	public void testInvalidDate() {
 		date1 = new GregorianCalendar(2013, 1, 1);
 		test1.addFutureMeeting(contacts, date1);
@@ -53,7 +57,7 @@ public class ContactManagerTest {
 	}
 	
 	@Test
-	public void testAddContacts() { //works
+	public void testAddContacts() { 
 		String name = "Simon";
 		String notes = "Test";
 		test1.addNewContact(name, notes);
