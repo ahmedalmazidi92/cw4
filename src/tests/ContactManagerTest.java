@@ -39,7 +39,7 @@ public class ContactManagerTest {
 	public void testAddFutureMeeting() { 
 		Contact simon = new ContactImpl("Simon Pegg", "Still recovering from Paul");
 		contacts.add(simon);
-		test1.addNewContact(simon); //New method to be implemented		
+		((ContactManagerImpl)test1).addNewContact(simon); //New method to be implemented		
 		int expected = 1;
 		int actual = test1.addFutureMeeting(contacts, date1);
 		assertEquals(expected, actual);
