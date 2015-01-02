@@ -30,5 +30,10 @@ public class ContactImpl implements Contact{
 		this.notes = note;
 		
 	}
+	
+	@Override
+	public boolean equals(Object contact){
+		if(contact.getName() == this.getName() && contact.getNotes() == this.get)
+	}
 
 }
