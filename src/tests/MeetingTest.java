@@ -115,14 +115,14 @@ public class MeetingTest {
 	
 	@Test
 	public void testNotes() { //works
-		PastMeeting xtraTest1 = new PastMeetingImpl(date1, contacts1);
+		PastMeeting xtraTest1 = new PastMeetingImpl(date1, contacts1, "");
 		String expected = "";
 		String actual = ((PastMeetingImpl)xtraTest1).getNotes();
 		assertEquals(expected, actual);
 		
-		PastMeeting xtraTest2 = new PastMeetingImpl(date2, contacts2);
+		
 		expected = "Creative difference, find new director";
-		((PastMeetingImpl) xtraTest2).addNotes(expected);
+		PastMeeting xtraTest2 = new PastMeetingImpl(date2, contacts2, expected);
 		actual = xtraTest2.getNotes();
 		assertEquals(expected, actual);
 		
