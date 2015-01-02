@@ -39,5 +39,10 @@ public class MeetingImpl implements Meeting {
 	}
 
 	@Override
-	public 
+	public int hashCode() {
+		int code;
+		String hashString = "" + this.getId() + this.getContacts() + this.getDate();
+		code = hashString.hashCode();
+		return code;
+	}
 }
