@@ -27,5 +27,15 @@ public class MeetingImpl implements Meeting {
 	public Set<Contact> getContacts() {
 		return contacts;
 	}
+	
+	@Override
+	public boolean equals(Object meeting) {
+		if(meeting instanceof Meeting) {
+			Meeting result = (Meeting) meeting;
+			return (result.getId() == this.getId() && result.getDate() == this.getDate() && result.getContacts() == this.getContacts() ? true : false);
+		}else {
+			return false;
+		}
+	}
 
 }
