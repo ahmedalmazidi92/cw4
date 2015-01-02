@@ -31,7 +31,7 @@ public class ContactImpl implements Contact{
 		
 	}
 	
-	@Override
+	@Override 
 	public boolean equals(Object contact){
 		if (contact instanceof Contact) {
 			Contact result =  (Contact) contact;
@@ -39,6 +39,13 @@ public class ContactImpl implements Contact{
 		}else{
 			return false;
 		}
+	}
+	
+	@Override
+	public int hashCode() {
+		String hashString = getName() + getNotes() + getId();
+		int code = hashString.hashCode();
+		return code;
 	}
 
 }
