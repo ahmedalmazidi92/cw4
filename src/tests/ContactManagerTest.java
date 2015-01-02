@@ -27,6 +27,7 @@ public class ContactManagerTest {
 	public void buildUp() {
 		test1 = new ContactManagerImpl();
 		date1 = new GregorianCalendar(2015, 03, 05);
+		contacts = new HashSet<Contact>();
 	}
 	
 	@After
@@ -51,10 +52,10 @@ public class ContactManagerTest {
 		test1.addFutureMeeting(contacts, date1);
 	}
 	
-	@Test(expected = IllegalArgumentException.class)
-	public void testInvalidContact() {
+	//@Test(expected = IllegalArgumentException.class)
+	//public void testInvalidContact() {
 		
-	}
+	//}
 	
 	@Test
 	public void testAddContacts() { 
