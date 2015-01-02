@@ -5,10 +5,10 @@ import sourcecode.ContactImpl;
 import static org.junit.Assert.*;
 
 public class ContactTest {
-	private Contact test1 = new ContactImpl("Simon Pegg");
+	private Contact test1 = new ContactImpl("Simon Pegg", "");
 	private Contact test2 = new ContactImpl("Nick Frost", "Shaun of the Dead");
 	private Contact test3 = new ContactImpl("Edgar Wright", "Hot Fuzz");
-	private Contact test4 = new ContactImpl("Scott Pilgrim");
+	private Contact test4 = new ContactImpl("Scott Pilgrim", "");
 	
 	@After
 	public void cleanUp() {
