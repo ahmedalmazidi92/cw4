@@ -27,8 +27,8 @@ public class MeetingTest {
 	private Calendar date2;
 	private Calendar date3;
 	private Calendar date4;
-	private Contact simon = new ContactImpl("Simon Pegg");
-	private Contact nick = new ContactImpl("Nick Frost");
+	private Contact simon = new ContactImpl("Simon Pegg", "");
+	private Contact nick = new ContactImpl("Nick Frost", "");
 	private Contact edgar = new ContactImpl("Edgar Wright", "Antman");
 	private Contact marvel = new ContactImpl("Marvel Execs", "Thoughts about changing director");
 	
