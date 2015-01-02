@@ -67,5 +67,19 @@ public class ContactManagerTest {
 	public void testForNullPointerException() {
 		test1.addNewContact(null, null);
 	}
+	
+	@Test
+	public void testGetContactswithIDs() {
+		test1.addNewContact("Simon Pegg", "Paul");
+		test1.addNewContact("Nick Frost", "");
+		test1.addNewContact("Edgar Wright", "Antman");
+		ContactImpl.count = 0;
+		contacts.add(new ContactImpl("Simon Pegg", "Paul"));
+		contacts.add(new ContactImpl("Nick Frost", ""));
+		contacts.add(new ContactImpl("Edgar Wright", "Antman"));
+		Set<Contact> actual = getContacts(1, 2, 3);
+		assertEquals(contacts, actual);
+		
+	}
 
 }
