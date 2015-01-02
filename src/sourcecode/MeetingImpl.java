@@ -31,11 +31,13 @@ public class MeetingImpl implements Meeting {
 	@Override
 	public boolean equals(Object meeting) {
 		if(meeting instanceof Meeting) {
-			Meeting result = (Meeting) meeting;
+			Meeting result = (MeetingImpl) meeting;
 			return (result.getId() == this.getId() && result.getDate() == this.getDate() && result.getContacts() == this.getContacts() ? true : false);
 		}else {
 			return false;
 		}
 	}
 
+	@Override
+	public 
 }
