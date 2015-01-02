@@ -96,6 +96,10 @@ public class ContactManagerImpl implements ContactManager {
 		
 	}
 	
+	public void addNewContact(Contact contact) {
+		addNewContact(contact.getName(), contact.getNotes()); //Don't forget to do something about Contact ID
+	}
+	
 	public boolean isEmpty() {
 		return contacts.isEmpty();
 	}
