@@ -14,13 +14,6 @@ public class ContactImpl implements Contact{
 		this.id = count;
 	}
 	
-	public ContactImpl(String name) {
-		this.name = name;
-		this.notes = "";
-		count++;
-		this.id = count;
-	}
-
 	public int getId() {
 		return id;
 	}
@@ -37,7 +30,5 @@ public class ContactImpl implements Contact{
 		this.notes = note;
 		
 	}
-	
-	
 
 }
