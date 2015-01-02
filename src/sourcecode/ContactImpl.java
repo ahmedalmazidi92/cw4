@@ -33,7 +33,9 @@ public class ContactImpl implements Contact{
 	
 	@Override
 	public boolean equals(Object contact){
-		if(contact.getName() == this.getName() && contact.getNotes() == this.get)
-	}
+		if (contact instanceof Contact) {
+			Contact result =  (Contact) contact;
+			if(result.getName() == this.getName() && result.getNotes() == this.getNotes() && result.getId() == this.getId())
+		}
 
 }
