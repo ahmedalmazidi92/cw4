@@ -40,7 +40,7 @@ public class ContactManagerTest {
 	}
 	
 	@Test
-	public void testAddFutureMeeting() { 
+	public void testAddFutureMeeting() { //works
 		ContactImpl.count = 0;
 		contacts.add(new ContactImpl("Simon Pegg", "Paul"));	
 		int expected = 1;
@@ -48,13 +48,15 @@ public class ContactManagerTest {
 		assertEquals(expected, actual);
 	}
 	
-	@Test(expected = IllegalArgumentException.class) 
+	@Test(expected = IllegalArgumentException.class) //works
 	public void testInvalidDate() {
 		date1 = new GregorianCalendar(2013, 1, 1);
+		contacts.add(new ContactImpl("Simon Pegg", "Paul"));
+		contacts.add(new ContactImpl("Nick Frost", ""));
 		test1.addFutureMeeting(contacts, date1);
 	}
 	
-	@Test(expected = IllegalArgumentException.class)
+	@Test(expected = IllegalArgumentException.class) //works
 	public void testInvalidContact() {
 		ContactImpl.count = 0;
 		contacts.add(new ContactImpl ("Seemon Pegg", ""));
