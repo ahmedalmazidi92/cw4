@@ -93,5 +93,9 @@ public class ContactManagerTest {
 		Set<Contact> actual = test1.getContact("Simon Pegg");
 		assertEquals(contacts, actual);
 	}
-
+	
+	@Test(expected = NullPointerException.class)
+	public void testGetContactWithStringException() {
+		Set<Contact> actual = test1.getContact(null);
+	}
 }
