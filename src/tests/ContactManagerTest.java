@@ -2,6 +2,7 @@
 import interfaces.Contact;
 import interfaces.ContactManager;
 import interfaces.Meeting;
+import interfaces.PastMeeting;
 
 import org.junit.*;
 
@@ -10,6 +11,7 @@ import sourcecode.ContactImpl;
 import sourcecode.ContactManagerImpl;
 import sourcecode.FutureMeetingImpl;
 import sourcecode.MeetingImpl;
+import sourcecode.PastMeetingImpl;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -21,12 +23,14 @@ import interfaces.FutureMeeting;
 public class ContactManagerTest {
 	private ContactManager test1;
 	private Calendar date1;
+	private Calendar date2;
 	private Set<Contact> contacts;
 
 	@Before
 	public void buildUp() {
 		test1 = new ContactManagerImpl();
 		date1 = new GregorianCalendar(2015, 03, 05);
+		date2 = new GregorianCalendar(2014, 12, 31);
 		contacts = new HashSet<Contact>();
 		test1.addNewContact("Simon Pegg", "Paul");
 		test1.addNewContact("Nick Frost", "");
@@ -71,6 +75,12 @@ public class ContactManagerTest {
 		FutureMeeting expected = new FutureMeetingImpl(date1, contacts);
 		FutureMeeting actual = test1.getFutureMeeting(1);
 		assertEquals(expected, actual);
+	}
+	
+	@Test(expected = IllegalArgumentException.class) //Need to implement addNewPastMeeting first
+	public void testGetFutureMeetingException() {
+		test1.addNewPastMeeting(contacts, date2, "");
+		test1.getFutureMeeting(1);
 	}
 	
 	@Test
