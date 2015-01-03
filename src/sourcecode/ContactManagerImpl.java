@@ -109,18 +109,14 @@ public class ContactManagerImpl implements ContactManager {
 	public Set<Contact> getContacts(int... ids) {
 		Set<Contact> result = new HashSet<Contact>();
 		Stream<Contact> allContacts = currentContacts.stream();
-		int searchedIDs = 0;
 		for (int id : ids){
-			searchedIDs++;
-			Optional<Integer> value = Optional.of(searchedIDs);
-			Predicate<Contact> matchID = (c) -> c.getId() == id;
-			allContacts.forEach(c -> {
-				if(matchID.test(c)) {
-					result.add(c);
-				}else if (result.size() != value.get() ) {
-					throw new IllegalArgumentException("ID: " + id + " does not belong to any contact");
+			for (Contact contact : currentContacts) {
+				if (allContacts.anyMatch((c) -> c.getId() == id)) {
+					result.add(contact);
+				}else {
+					throw new IllegalArgumentException("ID: " + id + " does not match any contact");
 				}
-			});
+			}
 		}
 		return result;
 	}
