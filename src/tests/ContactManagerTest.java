@@ -77,7 +77,7 @@ public class ContactManagerTest {
 		contacts.add(new ContactImpl("Simon Pegg", "Paul"));
 		contacts.add(new ContactImpl("Nick Frost", ""));
 		contacts.add(new ContactImpl("Edgar Wright", "Antman"));
-		Set<Contact> actual = getContacts(1, 2, 3);
+		Set<Contact> actual = test1.getContacts(1, 2, 3);
 		assertEquals(contacts, actual);
 		
 	}
