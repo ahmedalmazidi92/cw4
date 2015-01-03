@@ -5,10 +5,8 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Optional;
 import java.util.Set;
 import java.util.function.Predicate;
-import java.util.stream.Stream;
 
 import interfaces.Contact;
 import interfaces.ContactManager;
