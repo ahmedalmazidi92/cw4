@@ -113,14 +113,7 @@ public class ContactManagerImpl implements ContactManager {
 		Set<Contact> result = new HashSet<Contact>();
 		Stream<Contact> allContacts = currentContacts.stream();
 		for (int id : ids){
-			Predicate<Contact> matchID = new Predicate<Contact>() {
-				
-				@Override
-				public boolean test(Contact c) {
-					return (c.getId() == id);
-				}
-			};
-			
+			Predicate<Contact> matchID = (c) -> c.getId() == id;
 				
 			}
 		}
