@@ -96,7 +96,6 @@ public class ContactManagerImpl implements ContactManager {
 		}else {
 			ContactImpl.count = currentContacts.size();
 			Contact newContact = new ContactImpl(name, notes);
-			System.out.println(newContact.getId());
 			currentContacts.add(newContact);
 		}
 		
@@ -113,15 +112,15 @@ public class ContactManagerImpl implements ContactManager {
 		int searchedIDs = 0;
 		for (int id : ids){
 			searchedIDs++;
+			Optional<Integer> value = Optional.of(searchedIDs);
 			Predicate<Contact> matchID = (c) -> c.getId() == id;
 			allContacts.forEach(c -> {
 				if(matchID.test(c)) {
 					result.add(c);
+				}else if (result.size() != value.get() ) {
+					throw new IllegalArgumentException("ID: " + id + " does not belong to any contact");
 				}
 			});
-			if(result.size() != searchedIDs) {
-				throw new IllegalArgumentException("ID: " + id + " does not belong to any contact");
-			}
 		}
 		return result;
 	}
