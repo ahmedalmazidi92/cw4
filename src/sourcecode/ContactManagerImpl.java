@@ -122,8 +122,18 @@ public class ContactManagerImpl implements ContactManager {
 
 	@Override
 	public Set<Contact> getContacts(String name) {
-		
-		return null;
+		if(name == null) {
+			throw new NullPointerException("Null is not accepted as a name");
+		}else {
+			Set<Contact> result = new HashSet<Contact>();
+			Predicate<Contact> matchString = (c) -> c.getName().equals(name);
+			currentContacts.stream().forEach((c) ->{
+				if(matchString.test(c)) {
+					result.add(c);
+				}
+			});
+			return result;
+		}
 	}
 
 	@Override
