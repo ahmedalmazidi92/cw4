@@ -110,16 +110,16 @@ public class ContactManagerImpl implements ContactManager {
 	public Set<Contact> getContacts(int... ids) {
 		Set<Contact> result = new HashSet<Contact>();
 		Stream<Contact> allContacts = currentContacts.stream();
+		int searchedIDs = 0;
 		for (int id : ids){
-			Optional<Boolean> doesIDMatch = Optional.of(false);
+			searchedIDs++;
 			Predicate<Contact> matchID = (c) -> c.getId() == id;
 			allContacts.forEach(c -> {
 				if(matchID.test(c)) {
 					result.add(c);
-					Optional.of(true);
 				}
 			});
-			if(!doesIDMatch.get()) {
+			if(result.size() != searchedIDs) {
 				throw new IllegalArgumentException("ID: " + id + " does not belong to any contact");
 			}
 		}
