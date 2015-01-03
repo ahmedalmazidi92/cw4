@@ -88,6 +88,10 @@ public class ContactManagerTest {
 	
 	@Test
 	public void testGetContactWithString() {
+		ContactImpl.count = 0;
+		contacts.add(new ContactImpl("Simon Pegg", "Paul"));
+		Set<Contact> actual = test1.getContact("Simon Pegg");
+		assertEquals(contacts, actual);
 	}
 
 }
