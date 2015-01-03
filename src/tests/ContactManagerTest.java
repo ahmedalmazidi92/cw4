@@ -81,20 +81,20 @@ public class ContactManagerTest {
 		assertEquals(contacts, actual);
 	}
 	
-	@Test(expected = IllegalArgumentException.class)
+	@Test(expected = IllegalArgumentException.class) //works
 	public void testGetContactwithIDsException() {
 		Set<Contact> actual = test1.getContacts(1, 2, 4);
 	}
 	
 	@Test
-	public void testGetContactWithString() {
+	public void testGetContactWithString() { //works
 		ContactImpl.count = 0;
 		contacts.add(new ContactImpl("Simon Pegg", "Paul"));
 		Set<Contact> actual = test1.getContacts("Simon Pegg");
 		assertEquals(contacts, actual);
 	}
 	
-	@Test(expected = NullPointerException.class)
+	@Test(expected = NullPointerException.class) //works
 	public void testGetContactWithStringException() {
 		String name = null;
 		Set<Contact> actual = test1.getContacts(name);
