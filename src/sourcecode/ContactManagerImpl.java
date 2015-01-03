@@ -6,6 +6,7 @@ import java.util.GregorianCalendar;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Stream;
 
 import interfaces.Contact;
 import interfaces.ContactManager;
@@ -14,20 +15,21 @@ import interfaces.Meeting;
 import interfaces.PastMeeting;
 
 public class ContactManagerImpl implements ContactManager {
-	private Set<Contact> contacts;
+	private Set<Contact> currentContacts;
 	private List<Meeting> meetings;
 	private Calendar currentDate;
 	
 	public ContactManagerImpl() {
-		this.contacts = new HashSet<Contact>();
+		this.currentContacts = new HashSet<Contact>();
 		this.meetings = new ArrayList<Meeting>();
 		this.currentDate = new GregorianCalendar();
 	}
+	
 
 	@Override
 	public int addFutureMeeting(Set<Contact> contacts, Calendar date) {
-		if (!this.contacts.contains(contacts)) {
-			throw new IllegalArgumentException("Unknown/Non-existant contacts");
+		if (!currentContacts.contains(contacts.toArray())) {
+			throw new IllegalArgumentException("Unknown contacts");
 		} else if  (date.before(currentDate)) {
 			throw new IllegalArgumentException("Please use an appropriate date");
 		} else {
@@ -90,8 +92,9 @@ public class ContactManagerImpl implements ContactManager {
 		if (name == null || notes == null) {
 			throw new NullPointerException("Name and/or Notes are null");
 		}else {
+			ContactImpl.count = currentContacts.size();
 			Contact newContact = new ContactImpl(name, notes);
-			contacts.add(newContact);
+			currentContacts.add(newContact);
 		}
 		
 	}
@@ -101,18 +104,20 @@ public class ContactManagerImpl implements ContactManager {
 	}
 	
 	public boolean isEmpty() {
-		return contacts.isEmpty();
+		return currentContacts.isEmpty();
 	}
 
 	@Override
 	public Set<Contact> getContacts(int... ids) {
-		// TODO Auto-generated method stub
-		return null;
+		Set<Contact> result = new HashSet<Contact>();
+		Stream<Contact> allContacts = currentContacts.stream();
+		for (int id : ids){
+		}
 	}
 
 	@Override
 	public Set<Contact> getContacts(String name) {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
