@@ -28,6 +28,9 @@ public class ContactManagerTest {
 		test1 = new ContactManagerImpl();
 		date1 = new GregorianCalendar(2015, 03, 05);
 		contacts = new HashSet<Contact>();
+		test1.addNewContact("Simon Pegg", "Paul");
+		test1.addNewContact("Nick Frost", "");
+		test1.addNewContact("Edgar Wright", "Antman");
 	}
 	
 	@After
@@ -70,9 +73,6 @@ public class ContactManagerTest {
 	
 	@Test
 	public void testGetContactswithIDs() { //works
-		test1.addNewContact("Simon Pegg", "Paul");
-		test1.addNewContact("Nick Frost", "");
-		test1.addNewContact("Edgar Wright", "Antman");
 		ContactImpl.count = 0;
 		contacts.add(new ContactImpl("Simon Pegg", "Paul"));
 		contacts.add(new ContactImpl("Nick Frost", ""));
@@ -83,9 +83,11 @@ public class ContactManagerTest {
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void testGetContactwithIDsException() {
-		test1.addNewContact("Simon Pegg", "Paul");
-		test1.addNewContact("Nick Frost", "");
-		Set<Contact> actual = test1.getContacts(1, 2, 3);
+		Set<Contact> actual = test1.getContacts(1, 2, 4);
+	}
+	
+	@Test
+	public void testGetContactWithString() {
 	}
 
 }
