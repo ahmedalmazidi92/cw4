@@ -41,6 +41,7 @@ public class ContactManagerTest {
 	
 	@Test
 	public void testAddFutureMeeting() { 
+		ContactImpl.count = 0;
 		contacts.add(new ContactImpl("Simon Pegg", "Paul"));	
 		int expected = 1;
 		int actual = test1.addFutureMeeting(contacts, date1);
@@ -55,7 +56,9 @@ public class ContactManagerTest {
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void testInvalidContact() {
-		
+		ContactImpl.count = 0;
+		contacts.add(new ContactImpl ("Seemon Pegg", ""));
+		test1.addFutureMeeting(contacts, date1);
 	}
 	
 	@Test
