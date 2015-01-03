@@ -108,10 +108,9 @@ public class ContactManagerImpl implements ContactManager {
 	@Override
 	public Set<Contact> getContacts(int... ids) {
 		Set<Contact> result = new HashSet<Contact>();
-		Stream<Contact> allContacts = currentContacts.stream();
 		for (int id : ids){
 			for (Contact contact : currentContacts) {
-				if (allContacts.anyMatch((c) -> c.getId() == id)) {
+				if (currentContacts.stream().anyMatch((c) -> c.getId() == id)) {
 					result.add(contact);
 				}else {
 					throw new IllegalArgumentException("ID: " + id + " does not match any contact");
