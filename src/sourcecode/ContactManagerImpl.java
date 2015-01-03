@@ -5,6 +5,7 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
@@ -110,14 +111,17 @@ public class ContactManagerImpl implements ContactManager {
 		Set<Contact> result = new HashSet<Contact>();
 		Stream<Contact> allContacts = currentContacts.stream();
 		for (int id : ids){
+			Optional<Boolean> doesIDMatch = Optional.of(false);
 			Predicate<Contact> matchID = (c) -> c.getId() == id;
 			allContacts.forEach(c -> {
 				if(matchID.test(c)) {
 					result.add(c);
-				//}else {
-					//throw new IllegalArgumentException("ID: " + id + " does not exist");
+					Optional.of(true);
 				}
 			});
+			if(!doesIDMatch.get()) {
+				throw new IllegalArgumentException("ID: " + id + " does not belong to any contact");
+			}
 		}
 		return result;
 	}
