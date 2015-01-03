@@ -64,6 +64,16 @@ public class ContactManagerTest {
 	}
 	
 	@Test
+	public void testGetFutureMeeting() {
+		contacts.add(new ContactImpl("Simon Pegg", "Paul"));
+		test1.addFutureMeeting(contacts, date1);
+		MeetingImpl.count = 0;
+		FutureMeeting expected = new FutureMeetingImpl(date1, contacts);
+		FutureMeeting actual = test1.getFutureMeeting(1);
+		assertEquals(expected, actual);
+	}
+	
+	@Test
 	public void testAddContacts() { //works
 		String name = "Simon";
 		String notes = "Test";
