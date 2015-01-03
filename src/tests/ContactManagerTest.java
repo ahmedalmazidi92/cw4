@@ -56,7 +56,7 @@ public class ContactManagerTest {
 	//}
 	
 	@Test
-	public void testAddContacts() { 
+	public void testAddContacts() { //works
 		String name = "Simon";
 		String notes = "Test";
 		test1.addNewContact(name, notes);
@@ -69,7 +69,7 @@ public class ContactManagerTest {
 	}
 	
 	@Test
-	public void testGetContactswithIDs() {
+	public void testGetContactswithIDs() { //works
 		test1.addNewContact("Simon Pegg", "Paul");
 		test1.addNewContact("Nick Frost", "");
 		test1.addNewContact("Edgar Wright", "Antman");
@@ -79,7 +79,13 @@ public class ContactManagerTest {
 		contacts.add(new ContactImpl("Edgar Wright", "Antman"));
 		Set<Contact> actual = test1.getContacts(1, 2, 3);
 		assertEquals(contacts, actual);
-		
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testGetContactwithIDsException() {
+		test1.addNewContact("Simon Pegg", "Paul");
+		test1.addNewContact("Nick Frost", "");
+		Set<Contact> actual = test1.getContacts(1, 2, 3);
 	}
 
 }
