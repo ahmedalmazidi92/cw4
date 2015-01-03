@@ -114,8 +114,11 @@ public class ContactManagerImpl implements ContactManager {
 		Stream<Contact> allContacts = currentContacts.stream();
 		for (int id : ids){
 			Predicate<Contact> matchID = (c) -> c.getId() == id;
-				
-			}
+			allContacts.forEach(c -> {
+				if(matchID.test(c)) {
+					result.add(c);
+				}
+			});
 		}
 	}
 
