@@ -28,9 +28,14 @@ public class ContactManagerImpl implements ContactManager {
 
 	@Override
 	public int addFutureMeeting(Set<Contact> contacts, Calendar date) {
-		if (!currentContacts.contains(contacts.toArray())) {
-			throw new IllegalArgumentException("Unknown contacts");
-		} else if  (date.before(currentDate)) {
+		Predicate<Contact> matchContact = (c) -> c.equals(contacts);
+		currentContacts.stream().forEach((c) -> {
+			if(!matchContact.test(c)) {
+				throw new IllegalArgumentException("Unknown contacts");
+			}
+		});
+		
+		if  (date.before(currentDate)) {
 			throw new IllegalArgumentException("Please use an appropriate date");
 		} else {
 			FutureMeeting result = new FutureMeetingImpl(date, contacts);
