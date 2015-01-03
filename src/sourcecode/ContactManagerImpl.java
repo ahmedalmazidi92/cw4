@@ -108,13 +108,14 @@ public class ContactManagerImpl implements ContactManager {
 	@Override
 	public Set<Contact> getContacts(int... ids) {
 		Set<Contact> result = new HashSet<Contact>();
+		Stream<Contact> allContacts = currentContacts.stream();
 		for (int id : ids){
 			Predicate<Contact> matchID = (c) -> c.getId() == id;
-			currentContacts.forEach(c -> {
+			allContacts.forEach(c -> {
 				if(matchID.test(c)) {
 					result.add(c);
-				}else {
-					throw new IllegalArgumentException("ID: " + id + " does not exist");
+				//}else {
+					//throw new IllegalArgumentException("ID: " + id + " does not exist");
 				}
 			});
 		}
