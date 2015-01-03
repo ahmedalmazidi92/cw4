@@ -95,6 +95,7 @@ public class ContactManagerImpl implements ContactManager {
 		}else {
 			ContactImpl.count = currentContacts.size();
 			Contact newContact = new ContactImpl(name, notes);
+			System.out.println(newContact.getId());
 			currentContacts.add(newContact);
 		}
 		
@@ -107,10 +108,9 @@ public class ContactManagerImpl implements ContactManager {
 	@Override
 	public Set<Contact> getContacts(int... ids) {
 		Set<Contact> result = new HashSet<Contact>();
-		Stream<Contact> allContacts = currentContacts.stream();
 		for (int id : ids){
 			Predicate<Contact> matchID = (c) -> c.getId() == id;
-			allContacts.forEach(c -> {
+			currentContacts.forEach(c -> {
 				if(matchID.test(c)) {
 					result.add(c);
 				}else {
