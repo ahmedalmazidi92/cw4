@@ -117,9 +117,12 @@ public class ContactManagerImpl implements ContactManager {
 			allContacts.forEach(c -> {
 				if(matchID.test(c)) {
 					result.add(c);
+				}else {
+					throw new IllegalArgumentException("ID: " + id + " does not exist");
 				}
 			});
 		}
+		return result;
 	}
 
 	@Override
