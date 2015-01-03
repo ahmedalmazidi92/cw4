@@ -90,12 +90,13 @@ public class ContactManagerTest {
 	public void testGetContactWithString() {
 		ContactImpl.count = 0;
 		contacts.add(new ContactImpl("Simon Pegg", "Paul"));
-		Set<Contact> actual = test1.getContact("Simon Pegg");
+		Set<Contact> actual = test1.getContacts("Simon Pegg");
 		assertEquals(contacts, actual);
 	}
 	
 	@Test(expected = NullPointerException.class)
 	public void testGetContactWithStringException() {
-		Set<Contact> actual = test1.getContact(null);
+		String name = null;
+		Set<Contact> actual = test1.getContacts(name);
 	}
 }
