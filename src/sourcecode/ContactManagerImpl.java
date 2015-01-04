@@ -50,6 +50,8 @@ public class ContactManagerImpl implements ContactManager {
 			return null;
 		}else if(result.get() instanceof FutureMeeting) {
 			throw new IllegalArgumentException("ID " + id + " corresponds to a Future Meeting");
+		}else {
+			return (PastMeeting) result.get();
 		}
 	}
 
