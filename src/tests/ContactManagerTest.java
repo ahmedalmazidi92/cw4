@@ -160,7 +160,7 @@ public class ContactManagerTest {
 	}
 	
 	@Test
-	public void testGetMeeting() {
+	public void testGetMeeting() { //works
 		contacts = test1.getContacts(1);
 		test1.addFutureMeeting(contacts, date1);
 		MeetingImpl.count = 0;
