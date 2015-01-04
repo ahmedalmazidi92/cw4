@@ -164,7 +164,8 @@ public class ContactManagerTest {
 		contacts.add((Contact) test1.getContacts(1));
 		test1.addFutureMeeting(contacts, date1);
 		MeetingImpl.count = 0;
-		Meeting expected = new MeetingImpl
-		
+		Meeting expected = new MeetingImpl(date1, contacts);
+		Meeting actual = test1.getMeeting(1);
+		assertEquals(expected, actual);
 	}
 }
