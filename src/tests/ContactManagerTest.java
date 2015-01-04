@@ -223,10 +223,20 @@ public class ContactManagerTest {
 		assertEquals(expected, actual);
 	}
 	
-	@Test(expected = IllegalArgumentException.class)
+	@Test(expected = IllegalArgumentException.class) //works
 	public void testGetPastMeetingListException() {
 		Contact seemon = new ContactImpl("Seemon Pug" , "");
 		test1.getPastMeetingList(seemon);
+	}
+	
+	@Test
+	public void testAddMeetingNotes() {
+		contacts = test1.getContacts(1, 2, 3);
+		test1.addNewPastMeeting(contacts, date2, "");
+		String expected = "Scott Pilgrim vs The World";
+		test1.addMeetingNotes(1, expected);
+		String actual = test1.getPastMeeting(1).getNotes();
+		assertEquals(expected, actual);
 	}
 	
 }
