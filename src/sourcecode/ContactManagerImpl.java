@@ -89,7 +89,7 @@ public class ContactManagerImpl implements ContactManager {
 		isContactReal(contacts);
 		List<Meeting> listOfMeetings = new ArrayList<Meeting>();
 		allMeetings.stream().forEach((m) -> {
-			if(m.getContacts().contains(contact)){
+			if(m.getContacts().contains(contact) && m instanceof FutureMeeting){
 				listOfMeetings.add(m);
 			}
 		});
