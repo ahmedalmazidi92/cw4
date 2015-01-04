@@ -83,7 +83,7 @@ public class ContactManagerImpl implements ContactManager {
 	}
 
 	@Override
-	public List<Meeting> getFutureMeetingList(Contact contact) {
+	public List<Meeting> getFutureMeetingList(Contact contact) { //Needs to be sorted
 		Set<Contact> contacts = new HashSet<Contact>();
 		contacts.add(contact);
 		isContactReal(contacts);
@@ -98,8 +98,13 @@ public class ContactManagerImpl implements ContactManager {
 
 	@Override
 	public List<Meeting> getFutureMeetingList(Calendar date) {
-		// TODO Auto-generated method stub
-		return null;
+		List<Meeting> listOfMeetings = new ArrayList<Meeting>();
+		allMeetings.stream().forEach((m) -> {
+			if(m.getDate() == date) {
+				listOfMeetings.add(m);
+			}
+		});
+		return listOfMeetings;
 	}
 
 	@Override
