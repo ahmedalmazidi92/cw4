@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 import java.util.function.Predicate;
+import java.util.stream.Stream;
 
 import interfaces.Contact;
 import interfaces.ContactManager;
@@ -49,11 +50,12 @@ public class ContactManagerImpl implements ContactManager {
 	@Override
 	public FutureMeeting getFutureMeeting(int id) {
 		Predicate<Meeting> condition = (m) -> m.getId() == id;
-		Optional<Meeting> result = allMeetings.stream().filter(condition).findAny();
-		if(result.get() instanceof PastMeeting) {
-			throw new IllegalArgumentException("ID " + id + "corresponds to a Past Meeting");
+		Stream<Meeting> stream = allMeetings.stream();
+		stream.filter(condition);
+		if(stream instanceof PastMeeting) {
+			throw new IllegalArgumentException("ID " + id + " corresponds to a Past Meeting");
 		}else{
-			return (FutureMeeting) result.get();
+			return (FutureMeeting) stream;
 		}
 	}
 
