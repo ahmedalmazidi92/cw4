@@ -84,14 +84,15 @@ public class ContactManagerTest {
 		test1.getFutureMeeting(1);
 	}
 	
-	//@Test
-	//public void testAddAndGetNewPastMeeting() {
-		//test1.addNewPastMeeting(contacts, date2, "");
-		//MeetingImpl.count = 0;
-		//PastMeeting expected = new PastMeetingImpl(date2, contacts, "");
-		//PastMeeting actual = test1.getPastMeeting(1);
-		//assertEquals(expected, actual);
-	//}
+	@Test
+	public void testAddAndGetNewPastMeeting() {
+		contacts.add(new ContactImpl("Simon Pegg", "Paul"));
+		test1.addNewPastMeeting(contacts, date2, "");
+		MeetingImpl.count = 0;
+		PastMeeting expected = new PastMeetingImpl(date2, contacts, "");
+		PastMeeting actual = test1.getPastMeeting(1);
+		assertEquals(expected, actual);
+	}
 	
 	@Test
 	public void testAddContacts() { //works
