@@ -83,7 +83,7 @@ public class ContactManagerImpl implements ContactManager {
 	}
 
 	@Override
-	public List<Meeting> getFutureMeetingList(Contact contact) { //Needs to be sorted
+	public List<Meeting> getFutureMeetingList(Contact contact) { 
 		Set<Contact> contacts = new HashSet<Contact>();
 		contacts.add(contact);
 		isContactReal(contacts);
