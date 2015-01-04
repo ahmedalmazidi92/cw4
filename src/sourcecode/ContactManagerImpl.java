@@ -150,7 +150,10 @@ public class ContactManagerImpl implements ContactManager {
 		}else if(result.get() instanceof PastMeeting){
 			((PastMeetingImpl) result.get()).setNotes(text);
 		}else {
-			
+			PastMeeting formerFutureMeeting = new PastMeetingImpl(result.get().getDate(), result.get().getContacts(), text);
+			MeetingImpl.count--;
+			((MeetingImpl) formerFutureMeeting).setId(result.get().getId());
+			allMeetings.remove(result.get());
 		}
 		
 	}
