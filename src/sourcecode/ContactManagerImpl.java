@@ -109,8 +109,16 @@ public class ContactManagerImpl implements ContactManager {
 
 	@Override
 	public List<PastMeeting> getPastMeetingList(Contact contact) {
-		// TODO Auto-generated method stub
-		return null;
+		Set<Contact> contacts = new HashSet<Contact>();
+		contacts.add(contact);
+		isContactReal(contacts);
+		List<PastMeeting> listOfMeetings = new ArrayList<PastMeeting>();
+		allMeetings.stream().forEach((m) -> {
+			if(m.getContacts().contains(contact) && m instanceof PastMeeting){
+				listOfMeetings.add((PastMeeting) m);
+			}
+		});
+		return listOfMeetings;
 	}
 
 	@Override
