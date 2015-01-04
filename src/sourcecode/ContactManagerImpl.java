@@ -52,7 +52,10 @@ public class ContactManagerImpl implements ContactManager {
 		Predicate<Meeting> condition = (m) -> m.getId() == id;
 		Stream<Meeting> stream = allMeetings.stream();
 		stream.filter(condition);
-		if(stream instanceof PastMeeting) {
+		Optional<Meeting> result = stream.findAny();
+		if(!result.isPresent()) {
+			return null;
+		}else if(stream instanceof PastMeeting) {
 			throw new IllegalArgumentException("ID " + id + " corresponds to a Past Meeting");
 		}else{
 			return (FutureMeeting) stream;
