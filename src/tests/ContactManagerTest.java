@@ -203,7 +203,7 @@ public class ContactManagerTest {
 		List<Meeting> expected = new ArrayList<Meeting>();
 		expected.add(test1.getMeeting(1));
 		expected.add(test1.getMeeting(2));
-		List<Meeting> actual = test1.getFutureMeetingList(date1);
+		List<Meeting> actual = test1.getFutureMeetingList(date2);
 		assertEquals(expected, actual);
 		
 	}
