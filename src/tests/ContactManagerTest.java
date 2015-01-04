@@ -101,7 +101,21 @@ public class ContactManagerTest {
 		test1.getPastMeeting(1);
 	}
 	
+	@Test(expected = NullPointerException.class) //works
+	public void testNullExceptionForAddPastMeeting() {
+		test1.addNewPastMeeting(null, date2, "");
+	}
 	
+	@Test(expected = IllegalArgumentException.class) //works
+	public void testEmptyContactsForAddNewPastMeeting() {
+		test1.addNewPastMeeting(contacts, date2, "");
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testNonExistantContactsForAddNewPastMeeting() {
+		contacts.add(new ContactImpl("Seemon Peg", ""));
+		test1.addNewPastMeeting(contacts, date2, "");
+	}
 	
 	@Test
 	public void testAddContacts() { //works
