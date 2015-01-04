@@ -142,8 +142,16 @@ public class ContactManagerImpl implements ContactManager {
 		Predicate<Meeting> matchID = (m) -> m.getId() == id;
 		Optional<Meeting> result = allMeetings.stream().filter(matchID).findAny();
 		if(text == null) {
-			throw new NullPointerException("Null text is not an appropriate parameter");
-		}else if ()
+			throw new NullPointerException("Null String is not an appropriate parameter");
+		}else if (!result.isPresent()) {
+			throw new IllegalArgumentException("Meeting with ID " + id + " does not exist");
+		}else if (result.get().getDate().after(currentDate)) {
+			throw new IllegalStateException("Meeting with ID " + id + " has not occured yet");
+		}else if(result.get() instanceof PastMeeting){
+			((PastMeetingImpl) result.get()).setNotes(text);
+		}else {
+			
+		}
 		
 	}
 
@@ -152,7 +160,6 @@ public class ContactManagerImpl implements ContactManager {
 		if (name == null || notes == null) {
 			throw new NullPointerException("Name and/or Notes are null");
 		}else {
-			ContactImpl.count = currentContacts.size();
 			Contact newContact = new ContactImpl(name, notes);
 			currentContacts.add(newContact);
 		}
