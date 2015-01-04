@@ -85,7 +85,7 @@ public class ContactManagerTest {
 	}
 	
 	@Test
-	public void testAddAndGetNewPastMeeting() {
+	public void testAddAndGetNewPastMeeting() { //works
 		ContactImpl.count = 0;
 		contacts.add(new ContactImpl("Simon Pegg", "Paul"));
 		test1.addNewPastMeeting(contacts, date2, "");
@@ -93,6 +93,12 @@ public class ContactManagerTest {
 		PastMeeting expected = new PastMeetingImpl(date2, contacts, "");
 		PastMeeting actual = test1.getPastMeeting(1);
 		assertEquals(expected, actual);
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testExceptionForAddPastMeeting() {
+		test1.addFutureMeeting(contacts, date1);
+		test1.getPastMeeting(1);
 	}
 	
 	@Test
