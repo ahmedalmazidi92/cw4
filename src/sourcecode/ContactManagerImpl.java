@@ -44,8 +44,8 @@ public class ContactManagerImpl implements ContactManager {
 
 	@Override
 	public PastMeeting getPastMeeting(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		Predicate<Meeting> matchID = (m) -> m.getId() == id;
+		
 	}
 
 	@Override
