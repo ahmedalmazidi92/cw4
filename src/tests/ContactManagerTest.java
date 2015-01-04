@@ -13,9 +13,11 @@ import sourcecode.FutureMeetingImpl;
 import sourcecode.MeetingImpl;
 import sourcecode.PastMeetingImpl;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import interfaces.FutureMeeting;
@@ -172,8 +174,19 @@ public class ContactManagerTest {
 	}
 	
 	@Test
-	public void testGetFUtureMeetingList() {
-		
+	public void testGetFutureMeetingList() {
+		contacts = test1.getContacts(1, 2, 3);
+		test1.addFutureMeeting(contacts, date1);
+		contacts = test1.getContacts(1, 2);
+		test1.addFutureMeeting(contacts, date3);
+		List<Meeting> expected = new ArrayList<Meeting>();
+		expected.add(test1.getMeeting(1));
+		expected.add(test1.getMeeting(2));
+		Contact[] array = (Contact[]) test1.getContacts(1).toArray();
+		List<Meeting> actual = test1.getFutureMeetingList(array[0]);
+		assertEquals(expected, actual);
 	}
+	
+	@Test(ex)
 	
 }
