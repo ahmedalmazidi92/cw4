@@ -76,11 +76,17 @@ public class ContactManagerImpl implements ContactManager {
 			return (Meeting) result.get();
 		}
 	}
+	
+	private void isContactReal(Set<Contact> contacts) {
+		Predicate<Contact> matchContact = (c) -> currentContacts.contains(c);
+		if(!contacts.stream().allMatch(matchContact)) {
+				throw new IllegalArgumentException("Unknown contacts");
+		}
+	}
 
 	@Override
 	public List<Meeting> getFutureMeetingList(Contact contact) {
-		// TODO Auto-generated method stub
-		return null;
+		
 	}
 
 	@Override
