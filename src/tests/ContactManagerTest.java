@@ -180,8 +180,8 @@ public class ContactManagerTest {
 		contacts = test1.getContacts(1, 2);
 		test1.addFutureMeeting(contacts, date3);
 		List<Meeting> expected = new ArrayList<Meeting>();
-		expected.add(test1.getMeeting(1));
 		expected.add(test1.getMeeting(2));
+		expected.add(test1.getMeeting(1));
 		ContactImpl.count = 0;
 		Contact simon = new ContactImpl("Simon Pegg", "Paul");
 		List<Meeting> actual = test1.getFutureMeetingList(simon);
@@ -201,8 +201,8 @@ public class ContactManagerTest {
 		contacts = test1.getContacts(1, 2);
 		test1.addNewPastMeeting(contacts, date2, "");
 		List<Meeting> expected = new ArrayList<Meeting>();
-		expected.add(test1.getMeeting(1));
 		expected.add(test1.getMeeting(2));
+		expected.add(test1.getMeeting(1));
 		List<Meeting> actual = test1.getFutureMeetingList(date2);
 		assertEquals(expected, actual);
 		
@@ -215,8 +215,8 @@ public class ContactManagerTest {
 		contacts = test1.getContacts(1, 2);
 		test1.addNewPastMeeting(contacts, date2, "");
 		List<PastMeeting> expected = new ArrayList<PastMeeting>();
-		expected.add((PastMeeting) test1.getMeeting(1));
 		expected.add((PastMeeting) test1.getMeeting(2));
+		expected.add((PastMeeting) test1.getMeeting(1));
 		ContactImpl.count = 0;
 		Contact simon = new ContactImpl("Simon Pegg", "Paul");
 		List<PastMeeting> actual = test1.getPastMeetingList(simon);
@@ -230,7 +230,7 @@ public class ContactManagerTest {
 	}
 	
 	@Test
-	public void testAddMeetingNotes() {
+	public void testAddMeetingNotes() { //works
 		contacts = test1.getContacts(1, 2, 3);
 		test1.addNewPastMeeting(contacts, date2, "");
 		String expected = "Scott Pilgrim vs The World";
@@ -239,19 +239,19 @@ public class ContactManagerTest {
 		assertEquals(expected, actual);
 	}
 	
-	@Test(expected = IllegalArgumentException.class)
+	@Test(expected = IllegalArgumentException.class) //works
 	public void testMeetingNotExistForAddNotes() {
 		test1.addMeetingNotes(1, "Movie Piracy");
 	}
 	
-	@Test(expected = IllegalStateException.class)
+	@Test(expected = IllegalStateException.class) //works
 	public void testMeetingInFuture() {
 		contacts = test1.getContacts(1, 2, 3);
 		test1.addFutureMeeting(contacts, date1);
 		test1.addMeetingNotes(1, "");
 	}
 	
-	@Test(expected = NullPointerException.class)
+	@Test(expected = NullPointerException.class) //works
 	public void testNotesAreNull() {
 		contacts = test1.getContacts(1, 2, 3);
 		test1.addNewPastMeeting(contacts, date2, "");
