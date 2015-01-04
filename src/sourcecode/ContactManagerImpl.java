@@ -45,7 +45,12 @@ public class ContactManagerImpl implements ContactManager {
 	@Override
 	public PastMeeting getPastMeeting(int id) {
 		Predicate<Meeting> matchID = (m) -> m.getId() == id;
-		
+		Optional<Meeting> result = allMeetings.stream().filter(matchID).findAny();
+		if(!result.isPresent()) {
+			return null;
+		}else if(result.get() instanceof FutureMeeting) {
+			throw new IllegalArgumentException("ID " + id + " corresponds to a Future Meeting");
+		}
 	}
 
 	@Override
