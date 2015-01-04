@@ -197,9 +197,9 @@ public class ContactManagerTest {
 	@Test
 	public void testGetFutureMeetingListWithDate() {
 		contacts = test1.getContacts(1, 2, 3);
-		test1.addFutureMeeting(contacts, date1);
+		test1.addNewPastMeeting(contacts, date2, "");
 		contacts = test1.getContacts(1, 2);
-		test1.addFutureMeeting(contacts, date1);
+		test1.addNewPastMeeting(contacts, date2, "");
 		List<Meeting> expected = new ArrayList<Meeting>();
 		expected.add(test1.getMeeting(1));
 		expected.add(test1.getMeeting(2));
