@@ -49,16 +49,13 @@ public class ContactManagerImpl implements ContactManager {
 
 	@Override
 	public FutureMeeting getFutureMeeting(int id) {
-		Predicate<Meeting> condition = (m) -> m.getId() == id;
-		Stream<Meeting> stream = allMeetings.stream();
-		stream.filter(condition);
-		Optional<Meeting> result = stream.findAny();
+		Optional<Meeting> result = allMeetings.stream().filter((m) -> m.getId() == id).findFirst();
 		if(!result.isPresent()) {
 			return null;
-		}else if(stream instanceof PastMeeting) {
+		}else if(result.get()instanceof PastMeeting) {
 			throw new IllegalArgumentException("ID " + id + " corresponds to a Past Meeting");
 		}else{
-			return (FutureMeeting) stream;
+			return (FutureMeeting) result.get();
 		}
 	}
 
