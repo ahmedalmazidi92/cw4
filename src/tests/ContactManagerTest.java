@@ -244,6 +244,18 @@ public class ContactManagerTest {
 		test1.addMeetingNotes(1, "Movie Piracy");
 	}
 	
+	@Test(expected = IllegalStateException.class)
+	public void testMeetingInFuture() {
+		contacts = test1.getContacts(1, 2, 3);
+		test1.addFutureMeeting(contacts, date1);
+		test1.addMeetingNotes(1, "");
+	}
 	
+	@Test(expected = NullPointerException.class)
+	public void testNotesAreNull() {
+		contacts = test1.getContacts(1, 2, 3);
+		test1.addNewPastMeeting(contacts, date2, "");
+		test1.addMeetingNotes(1, null);
+	}
 	
 }
