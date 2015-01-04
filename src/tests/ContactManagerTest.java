@@ -195,7 +195,7 @@ public class ContactManagerTest {
 	}
 	
 	@Test
-	public void testGetFutureMeetingListWithDate() {
+	public void testGetFutureMeetingListWithDate() { //works
 		contacts = test1.getContacts(1, 2, 3);
 		test1.addNewPastMeeting(contacts, date2, "");
 		contacts = test1.getContacts(1, 2);
@@ -206,6 +206,21 @@ public class ContactManagerTest {
 		List<Meeting> actual = test1.getFutureMeetingList(date2);
 		assertEquals(expected, actual);
 		
+	}
+	
+	@Test
+	public void testGetPastMeetingList() {
+		contacts = test1.getContacts(1, 2, 3);
+		test1.addNewPastMeeting(contacts, date2, "");
+		contacts = test1.getContacts(1, 2);
+		test1.addNewPastMeeting(contacts, date2, "");
+		List<PastMeeting> expected = new ArrayList<PastMeeting>();
+		expected.add((PastMeeting) test1.getMeeting(1));
+		expected.add((PastMeeting) test1.getMeeting(2));
+		ContactImpl.count = 0;
+		Contact simon = new ContactImpl("Simon Pegg", "Paul");
+		List<PastMeeting> actual = test1.getPastMeetingList(simon);
+		assertEquals(expected, actual);
 	}
 	
 }
