@@ -182,8 +182,9 @@ public class ContactManagerTest {
 		List<Meeting> expected = new ArrayList<Meeting>();
 		expected.add(test1.getMeeting(1));
 		expected.add(test1.getMeeting(2));
-		Contact[] array = (Contact[]) test1.getContacts(1).toArray();
-		List<Meeting> actual = test1.getFutureMeetingList(array[0]);
+		ContactImpl.count = 0;
+		Contact simon = new ContactImpl("Simon Pegg", "Paul");
+		List<Meeting> actual = test1.getFutureMeetingList(simon);
 		assertEquals(expected, actual);
 	}
 	
