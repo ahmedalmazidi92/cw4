@@ -10,7 +10,7 @@ public class MeetingImpl implements Meeting {
 	private int id;
 	private Calendar date;
 	private Set<Contact> contacts;
-	public static int count = 0;
+	private static int count = 0;
 	
 	public MeetingImpl(Calendar date, Set<Contact> contacts) {
 		count++;
@@ -26,6 +26,10 @@ public class MeetingImpl implements Meeting {
 	}
 	public Set<Contact> getContacts() {
 		return contacts;
+	}
+	
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 	@Override

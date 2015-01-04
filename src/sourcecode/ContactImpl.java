@@ -5,7 +5,7 @@ public class ContactImpl implements Contact{
 	private int id;
 	private String name;
 	private String notes;
-	public static int count = 0;
+	private static int count = 0;
 
 	public ContactImpl(String name, String notes) {
 		this.name = name;
@@ -29,6 +29,10 @@ public class ContactImpl implements Contact{
 	public void addNotes(String note) {
 		this.notes = note;
 		
+	}
+	
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 	@Override 
