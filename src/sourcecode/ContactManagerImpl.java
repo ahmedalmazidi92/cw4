@@ -30,10 +30,8 @@ public class ContactManagerImpl implements ContactManager {
 
 	@Override
 	public int addFutureMeeting(Set<Contact> contacts, Calendar date) {
-		Predicate<Contact> matchContact = (c) -> currentContacts.contains(c);
-		if(!contacts.stream().allMatch(matchContact)) {
-				throw new IllegalArgumentException("Unknown contacts");
-		}else if  (date.before(currentDate)) {
+		isContactReal(contacts);
+		if  (date.before(currentDate)) {
 			throw new IllegalArgumentException("Please use an appropriate date");
 		} else {
 			FutureMeeting result = new FutureMeetingImpl(date, contacts);
@@ -104,12 +102,11 @@ public class ContactManagerImpl implements ContactManager {
 	@Override
 	public void addNewPastMeeting(Set<Contact> contacts, Calendar date,
 			String text) {
-		Predicate<Contact> matchContact = (c) -> currentContacts.contains(c); 
 		if(contacts.isEmpty()){
 			throw new IllegalArgumentException("The list of contacts provided is empty");
-		}else if (!contacts.stream().allMatch(matchContact)) {
-			throw new IllegalArgumentException("Unknown contacts");
-		}else if (contacts == null || date == null || text == null){
+		}
+		isContactReal(contacts);
+		if (contacts == null || date == null || text == null){
 			throw new NullPointerException("Null parameters are not accepted");
 		}else {
 			PastMeeting result = new PastMeetingImpl(date, contacts, text);
