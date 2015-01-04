@@ -78,7 +78,7 @@ public class ContactManagerTest {
 		assertEquals(expected, actual);
 	}
 	
-	@Test(expected = IllegalArgumentException.class) //Need to implement addNewPastMeeting first
+	@Test(expected = IllegalArgumentException.class) //works
 	public void testGetFutureMeetingException() {
 		test1.addNewPastMeeting(contacts, date2, "");
 		test1.getFutureMeeting(1);
@@ -86,6 +86,7 @@ public class ContactManagerTest {
 	
 	@Test
 	public void testAddAndGetNewPastMeeting() {
+		ContactImpl.count = 0;
 		contacts.add(new ContactImpl("Simon Pegg", "Paul"));
 		test1.addNewPastMeeting(contacts, date2, "");
 		MeetingImpl.count = 0;
