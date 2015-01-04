@@ -84,7 +84,11 @@ public class ContactManagerImpl implements ContactManager {
 
 	@Override
 	public List<Meeting> getFutureMeetingList(Contact contact) {
-		return null;
+		Set<Contact> contacts = new HashSet<Contact>();
+		contacts.add(contact);
+		isContactReal(contacts);
+		List<Meeting> listOfMeetings = new ArrayList<Meeting>();
+		
 	}
 
 	@Override
