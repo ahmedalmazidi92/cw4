@@ -49,7 +49,7 @@ public class ContactManagerImpl implements ContactManager {
 
 	@Override
 	public FutureMeeting getFutureMeeting(int id) {
-		Optional<Meeting> result = allMeetings.stream().filter((m) -> m.getId() == id).findFirst();
+		Optional<Meeting> result = allMeetings.stream().filter((m) -> m.getId() == id).findAny();
 		if(!result.isPresent()) {
 			return null;
 		}else if(result.get()instanceof PastMeeting) {
