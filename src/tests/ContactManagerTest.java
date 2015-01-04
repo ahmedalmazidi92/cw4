@@ -211,7 +211,7 @@ public class ContactManagerTest {
 	@Test
 	public void testGetPastMeetingList() { //works
 		contacts = test1.getContacts(1, 2, 3);
-		test1.addNewPastMeeting(contacts, date2, "");
+		test1.addNewPastMeeting(contacts, date3, "");
 		contacts = test1.getContacts(1, 2);
 		test1.addNewPastMeeting(contacts, date2, "");
 		List<PastMeeting> expected = new ArrayList<PastMeeting>();
