@@ -18,12 +18,12 @@ import interfaces.PastMeeting;
 
 public class ContactManagerImpl implements ContactManager {
 	private Set<Contact> currentContacts;
-	private List<Meeting> allMeetings;
+	private Set<Meeting> allMeetings;
 	private Calendar currentDate;
 	
 	public ContactManagerImpl() {
 		this.currentContacts = new HashSet<Contact>();
-		this.allMeetings = new ArrayList<Meeting>();
+		this.allMeetings = new HashSet<Meeting>();
 		this.currentDate = new GregorianCalendar();
 	}
 	
