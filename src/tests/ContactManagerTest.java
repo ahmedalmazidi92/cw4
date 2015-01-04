@@ -239,4 +239,11 @@ public class ContactManagerTest {
 		assertEquals(expected, actual);
 	}
 	
+	@Test(expected = IllegalArgumentException.class)
+	public void testMeetingNotExistForAddNotes() {
+		test1.addMeetingNotes(1, "Movie Piracy");
+	}
+	
+	
+	
 }
