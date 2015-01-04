@@ -174,7 +174,7 @@ public class ContactManagerTest {
 	}
 	
 	@Test
-	public void testGetFutureMeetingListWithContact() {
+	public void testGetFutureMeetingListWithContact() { //works
 		contacts = test1.getContacts(1, 2, 3);
 		test1.addFutureMeeting(contacts, date1);
 		contacts = test1.getContacts(1, 2);
@@ -188,10 +188,24 @@ public class ContactManagerTest {
 		assertEquals(expected, actual);
 	}
 	
-	@Test(expected = IllegalArgumentException.class)
+	@Test(expected = IllegalArgumentException.class) //works
 	public void testGetFutureMeetingListException() {
 		Contact seemon = new ContactImpl("Seemon Pug" , "");
 		test1.getFutureMeetingList(seemon);
+	}
+	
+	@Test
+	public void testGetFutureMeetingListWithDate() {
+		contacts = test1.getContacts(1, 2, 3);
+		test1.addFutureMeeting(contacts, date1);
+		contacts = test1.getContacts(1, 2);
+		test1.addFutureMeeting(contacts, date1);
+		List<Meeting> expected = new ArrayList<Meeting>();
+		expected.add(test1.getMeeting(1));
+		expected.add(test1.getMeeting(2));
+		List<Meeting> actual = test1.getFutureMeetingList(date1);
+		assertEquals(expected, actual);
+		
 	}
 	
 }
