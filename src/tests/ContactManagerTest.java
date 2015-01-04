@@ -174,7 +174,7 @@ public class ContactManagerTest {
 	}
 	
 	@Test
-	public void testGetFutureMeetingList() {
+	public void testGetFutureMeetingListWithContact() {
 		contacts = test1.getContacts(1, 2, 3);
 		test1.addFutureMeeting(contacts, date1);
 		contacts = test1.getContacts(1, 2);
@@ -187,6 +187,10 @@ public class ContactManagerTest {
 		assertEquals(expected, actual);
 	}
 	
-	@Test(ex)
+	@Test(expected = IllegalArgumentException.class)
+	public void testGetFutureMeetingListException() {
+		Contact seemon = new ContactImpl("Seemon Pug" , "");
+		test1.getFutureMeetingList(seemon);
+	}
 	
 }
