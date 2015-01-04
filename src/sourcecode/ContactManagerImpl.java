@@ -84,7 +84,7 @@ public class ContactManagerImpl implements ContactManager {
 
 	@Override
 	public List<Meeting> getFutureMeetingList(Contact contact) {
-		
+		return null;
 	}
 
 	@Override
