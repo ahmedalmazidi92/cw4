@@ -111,7 +111,7 @@ public class ContactManagerTest {
 		test1.addNewPastMeeting(contacts, date2, "");
 	}
 	
-	@Test(expected = IllegalArgumentException.class)
+	@Test(expected = IllegalArgumentException.class) //works
 	public void testNonExistantContactsForAddNewPastMeeting() {
 		contacts.add(new ContactImpl("Seemon Peg", ""));
 		test1.addNewPastMeeting(contacts, date2, "");
@@ -157,5 +157,14 @@ public class ContactManagerTest {
 	public void testGetContactWithStringException() {
 		String name = null;
 		Set<Contact> actual = test1.getContacts(name);
+	}
+	
+	@Test
+	public void testGetMeeting() {
+		contacts.add((Contact) test1.getContacts(1));
+		test1.addFutureMeeting(contacts, date1);
+		MeetingImpl.count = 0;
+		Meeting expected = new MeetingImpl
+		
 	}
 }
