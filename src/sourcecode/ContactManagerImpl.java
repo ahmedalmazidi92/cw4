@@ -87,7 +87,17 @@ public class ContactManagerImpl implements ContactManager {
 	@Override
 	public void addNewPastMeeting(Set<Contact> contacts, Calendar date,
 			String text) {
-		// TODO Auto-generated method stub
+		Predicate<Contact> matchContact = (c) -> currentContacts.contains(c); 
+		if(contacts.isEmpty()){
+			throw new IllegalArgumentException("The list of contacts provided is empty");
+		}else if (!contacts.stream().allMatch(matchContact)) {
+			throw new IllegalArgumentException("Unknown contacts");
+		}else if (contacts == null || date == null || text == null){
+			throw new NullPointerException("Null parameters are not accepted");
+		}else {
+			PastMeeting result = new PastMeetingImpl(date, contacts, text);
+			allMeetings.add(result);
+		}
 		
 	}
 
