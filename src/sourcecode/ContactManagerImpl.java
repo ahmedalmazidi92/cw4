@@ -139,7 +139,11 @@ public class ContactManagerImpl implements ContactManager {
 
 	@Override
 	public void addMeetingNotes(int id, String text) {
-		// TODO Auto-generated method stub
+		Predicate<Meeting> matchID = (m) -> m.getId() == id;
+		Optional<Meeting> result = allMeetings.stream().filter(matchID).findAny();
+		if(text == null) {
+			throw new NullPointerException("Null text is not an appropriate parameter");
+		}else if ()
 		
 	}
 
