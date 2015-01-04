@@ -84,6 +84,15 @@ public class ContactManagerTest {
 	}
 	
 	@Test
+	public void testAddAndGetNewPastMeeting() {
+		test1.addNewPastMeeting(contacts, date2, "");
+		MeetingImpl.count = 0;
+		PastMeeting expected = new PastMeetingImpl(date2, contacts, "");
+		PastMeeting actual = test1.getPastMeeting(1);
+		assertEquals(expected, actual);
+	}
+	
+	@Test
 	public void testAddContacts() { //works
 		String name = "Simon";
 		String notes = "Test";
