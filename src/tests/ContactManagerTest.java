@@ -209,7 +209,7 @@ public class ContactManagerTest {
 	}
 	
 	@Test
-	public void testGetPastMeetingList() {
+	public void testGetPastMeetingList() { //works
 		contacts = test1.getContacts(1, 2, 3);
 		test1.addNewPastMeeting(contacts, date2, "");
 		contacts = test1.getContacts(1, 2);
@@ -221,6 +221,12 @@ public class ContactManagerTest {
 		Contact simon = new ContactImpl("Simon Pegg", "Paul");
 		List<PastMeeting> actual = test1.getPastMeetingList(simon);
 		assertEquals(expected, actual);
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testGetPastMeetingListException() {
+		Contact seemon = new ContactImpl("Seemon Pug" , "");
+		test1.getPastMeetingList(seemon);
 	}
 	
 }
