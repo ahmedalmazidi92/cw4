@@ -10,7 +10,7 @@ public class MeetingImpl implements Meeting {
 	private int id;
 	private Calendar date;
 	private Set<Contact> contacts;
-	private static int count = 0;
+	public static int count = 0;
 	
 	public MeetingImpl(Calendar date, Set<Contact> contacts) {
 		count++;
