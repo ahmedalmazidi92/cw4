@@ -69,8 +69,12 @@ public class ContactManagerImpl implements ContactManager {
 
 	@Override
 	public Meeting getMeeting(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		Optional<Meeting> result = allMeetings.stream().filter((m) -> m.getId() ==id).findAny();
+		if(!result.isPresent()){
+			return null;
+		}else {
+			return (Meeting) result.get();
+		}
 	}
 
 	@Override
