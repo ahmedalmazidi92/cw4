@@ -95,11 +95,13 @@ public class ContactManagerTest {
 		assertEquals(expected, actual);
 	}
 	
-	@Test(expected = IllegalArgumentException.class)
-	public void testExceptionForAddPastMeeting() {
+	@Test(expected = IllegalArgumentException.class) //works
+	public void testExceptionForGetPastMeeting() {
 		test1.addFutureMeeting(contacts, date1);
 		test1.getPastMeeting(1);
 	}
+	
+	
 	
 	@Test
 	public void testAddContacts() { //works
