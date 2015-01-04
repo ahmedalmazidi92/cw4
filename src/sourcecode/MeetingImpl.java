@@ -1,12 +1,13 @@
 package sourcecode;
 
 import java.util.Calendar;
+import java.util.Comparator;
 import java.util.Set;
 
 import interfaces.Contact;
 import interfaces.Meeting;
 
-public class MeetingImpl implements Meeting {
+public class MeetingImpl implements Meeting, Comparator<Meeting> {
 	private int id;
 	private Calendar date;
 	private Set<Contact> contacts;
@@ -48,5 +49,17 @@ public class MeetingImpl implements Meeting {
 		String hashString = "" + this.getId() + this.getContacts() + this.getDate();
 		code = hashString.hashCode();
 		return code;
+	}
+	@Override
+	public int compare(Meeting o1, Meeting o2) {
+		Calendar date1 = o1.getDate();
+		Calendar date2 = o2.getDate();
+		if(date1.before(date2)){
+			return -1;
+		}else if(date1.after(date2)){
+			return 1;
+		}
+		
+		return 0;
 	}
 }
