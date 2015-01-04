@@ -145,10 +145,10 @@ public class ContactManagerImpl implements ContactManager {
 			throw new NullPointerException("Null String is not an appropriate parameter");
 		}else if (!result.isPresent()) {
 			throw new IllegalArgumentException("Meeting with ID " + id + " does not exist");
-		}else if (result.get().getDate().after(currentDate)) {
-			throw new IllegalStateException("Meeting with ID " + id + " has not occured yet");
 		}else if(result.get() instanceof PastMeeting){
 			((PastMeetingImpl) result.get()).setNotes(text);
+		}else if (result.get().getDate().after(currentDate)) {
+			throw new IllegalStateException("Meeting with ID " + id + " has not occured yet");
 		}else {
 			PastMeeting formerFutureMeeting = new PastMeetingImpl(result.get().getDate(), result.get().getContacts(), text);
 			MeetingImpl.count--;
