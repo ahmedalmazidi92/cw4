@@ -1,5 +1,10 @@
 package sourcecode;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -8,7 +13,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 import java.util.function.Predicate;
-import java.util.stream.Stream;
 
 import interfaces.Contact;
 import interfaces.ContactManager;
@@ -208,7 +212,17 @@ public class ContactManagerImpl implements ContactManager {
 
 	@Override
 	public void flush() {
-		// TODO Auto-generated method stub
+		File newFile = new File("src/contacts.txt");
+		if(newFile.exists()){
+			try {
+				FileOutputStream fos = new FileOutputStream(newFile, false);
+				ObjectOutputStream output = new ObjectOutputStream(fos);
+				output.writeObject()
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 		
 	}
 
