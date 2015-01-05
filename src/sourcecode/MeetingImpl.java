@@ -7,7 +7,17 @@ import java.util.Set;
 
 import interfaces.Contact;
 import interfaces.Meeting;
-
+/**
+ * 
+ * @author Ahmed Almazidi
+ * An implementation of the interface Meeting
+ * 
+ * A Class to represent meetings.
+ * Static variable count represents the number of objects of type
+ * that have been created. It is also used to assign a unique ID
+ * to the meetings
+ * 
+ */
 public class MeetingImpl implements Meeting, Comparator<Meeting>, Serializable {
 	private int id;
 	private Calendar date;
@@ -20,16 +30,38 @@ public class MeetingImpl implements Meeting, Comparator<Meeting>, Serializable {
 		this.contacts = contacts;
 		this.id = count;
 	}
+	/**
+	 * Returns the ID of the meeting.
+	 * 
+	 * @return the ID of the meeting.
+	 */
 	public int getId() {
 		return id;
 	}
+	/**
+	 * Returns the date of the meeting.
+	 * 
+	 * @return the date of the meeting.
+	 */
 	public Calendar getDate() {
 		return date;
 	}
+	/**
+	 * Return the detials of people that attended the meeting.
+	 * 
+	 * The list contains a minimum of one contact and may contain an arbitrary
+	 * number of them
+	 * 
+	 * @return the details of people that attended the meeting.
+	 */
 	public Set<Contact> getContacts() {
 		return contacts;
 	}
-	
+	/**
+	 * Sets the ID for the meeting.
+	 * 
+	 * @param id the ID to be set for the meeting
+	 */
 	public void setId(int id) {
 		this.id = id;
 	}
