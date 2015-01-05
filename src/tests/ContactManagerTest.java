@@ -27,6 +27,7 @@ public class ContactManagerTest {
 	private Calendar date1;
 	private Calendar date2;
 	private Calendar date3;
+	private Calendar currentDate;
 	private Set<Contact> contacts;
 
 	@Before
@@ -35,6 +36,7 @@ public class ContactManagerTest {
 		date1 = new GregorianCalendar(2015, 03, 05);
 		date2 = new GregorianCalendar(2014, 12, 31);
 		date3 = new GregorianCalendar(2015, 02, 12);
+		currentDate = new GregorianCalendar(2015, 01, 05);
 		contacts = new HashSet<Contact>();
 		test1.addNewContact("Simon Pegg", "Paul");
 		test1.addNewContact("Nick Frost", "");
@@ -236,6 +238,11 @@ public class ContactManagerTest {
 		String expected = "Scott Pilgrim vs The World";
 		test1.addMeetingNotes(1, expected);
 		String actual = test1.getPastMeeting(1).getNotes();
+		assertEquals(expected, actual);
+		
+		test1.addFutureMeeting(contacts, currentDate);
+		test1.addMeetingNotes(2, expected);
+		actual = test1.getPastMeeting(2).getNotes();
 		assertEquals(expected, actual);
 	}
 	
