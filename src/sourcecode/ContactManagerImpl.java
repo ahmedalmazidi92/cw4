@@ -14,7 +14,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
-import java.util.TreeSet;
 import java.util.function.Predicate;
 
 import interfaces.Contact;
@@ -41,14 +40,14 @@ public class ContactManagerImpl implements ContactManager {
 	@SuppressWarnings("unchecked")
 	public ContactManagerImpl() {
 		this.currentContacts = new HashSet<Contact>();
-		this.allMeetings = new TreeSet<Meeting>();
+		this.allMeetings = new HashSet<Meeting>();
 		this.currentDate = new GregorianCalendar(2015, 01, 05);
 		File newFile = new File("contacts.txt");
 		if(newFile.exists()){
 			try {
 				FileInputStream fis = new FileInputStream(newFile);
 				ObjectInputStream input = new ObjectInputStream(fis);
-				this.allMeetings = (TreeSet<Meeting>) input.readObject();
+				this.allMeetings = (HashSet<Meeting>) input.readObject();
 				System.out.println("Meetings successfully added");
 				this.currentContacts = (HashSet<Contact>) input.readObject();
 				System.out.println("Contacts successfully added");
