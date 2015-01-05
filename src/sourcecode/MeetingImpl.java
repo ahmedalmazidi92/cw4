@@ -1,5 +1,6 @@
 package sourcecode;
 
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Comparator;
 import java.util.Set;
@@ -7,7 +8,7 @@ import java.util.Set;
 import interfaces.Contact;
 import interfaces.Meeting;
 
-public class MeetingImpl implements Meeting, Comparator<Meeting> {
+public class MeetingImpl implements Meeting, Comparator<Meeting>, Serializable {
 	private int id;
 	private Calendar date;
 	private Set<Contact> contacts;
