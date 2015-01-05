@@ -1,7 +1,9 @@
 package sourcecode;
+import java.io.Serializable;
+
 import interfaces.Contact;
 
-public class ContactImpl implements Contact{
+public class ContactImpl implements Contact, Serializable{
 	private int id;
 	private String name;
 	private String notes;
@@ -50,6 +52,12 @@ public class ContactImpl implements Contact{
 		String hashString = getName() + getNotes() + getId();
 		int code = hashString.hashCode();
 		return code;
+	}
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return ("Contact [ID: " + getId() + ", Name: " + getName() + ", Notes: " + getNotes() + "]");
 	}
 
 }
