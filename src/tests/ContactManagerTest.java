@@ -49,6 +49,10 @@ public class ContactManagerTest {
 		MeetingImpl.count = 0;
 		ContactImpl.count = 0;
 		test1 = null;
+		File testFile = new File("contacts.txt");
+		if(testFile.exists()){
+			testFile.delete();
+		}
 	}
 	
 	@Test
@@ -277,7 +281,7 @@ public class ContactManagerTest {
 		test1.addMeetingNotes(4, "test");
 		test1.flush();
 		
-		File testFile = new File("src/contacts.txt");
+		File testFile = new File("contacts.txt");
 		boolean actual = testFile.exists();
 		assertTrue(actual);
 	}
