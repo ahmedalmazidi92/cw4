@@ -9,6 +9,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.GregorianCalendar;
 import java.util.HashSet;
 import java.util.List;
@@ -29,7 +30,7 @@ import interfaces.PastMeeting;
  */
 public class ContactManagerImpl implements ContactManager {
 	private Set<Contact> currentContacts;
-	private Set<Meeting> allMeetings;
+	private List<Meeting> allMeetings;
 	private Calendar currentDate;
 	
 	/**
@@ -40,14 +41,14 @@ public class ContactManagerImpl implements ContactManager {
 	@SuppressWarnings("unchecked")
 	public ContactManagerImpl() {
 		this.currentContacts = new HashSet<Contact>();
-		this.allMeetings = new HashSet<Meeting>();
+		this.allMeetings = new ArrayList<Meeting>();
 		this.currentDate = new GregorianCalendar(2015, 01, 05);
 		File newFile = new File("contacts.txt");
 		if(newFile.exists()){
 			try {
 				FileInputStream fis = new FileInputStream(newFile);
 				ObjectInputStream input = new ObjectInputStream(fis);
-				this.allMeetings = (HashSet<Meeting>) input.readObject();
+				this.allMeetings = (ArrayList<Meeting>) input.readObject();
 				System.out.println("Meetings successfully added");
 				this.currentContacts = (HashSet<Contact>) input.readObject();
 				System.out.println("Contacts successfully added");
@@ -176,6 +177,8 @@ public class ContactManagerImpl implements ContactManager {
 				listOfMeetings.add(m);
 			}
 		});
+		Collections.sort(listOfMeetings, new MeetingImpl(currentDate, contacts));
+		MeetingImpl.count --;
 		return listOfMeetings;
 	}
 
@@ -196,6 +199,8 @@ public class ContactManagerImpl implements ContactManager {
 				listOfMeetings.add(m);
 			}
 		});
+		Collections.sort(listOfMeetings, new MeetingImpl(currentDate, getContacts(1)));
+		MeetingImpl.count --;
 		return listOfMeetings;
 	}
 
@@ -220,6 +225,8 @@ public class ContactManagerImpl implements ContactManager {
 				listOfMeetings.add((PastMeeting) m);
 			}
 		});
+		Collections.sort(listOfMeetings, new MeetingImpl(currentDate, getContacts(1)));
+		MeetingImpl.count --;
 		return listOfMeetings;
 	}
 
