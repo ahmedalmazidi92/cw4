@@ -217,9 +217,26 @@ public class ContactManagerImpl implements ContactManager {
 			try {
 				FileOutputStream fos = new FileOutputStream(newFile, false);
 				ObjectOutputStream output = new ObjectOutputStream(fos);
-				output.writeObject()
+				output.writeObject(currentContacts);
+				output.writeObject(allMeetings);
+				output.close();
+				fos.close();
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}else {
+			try {
+				FileOutputStream fos = new FileOutputStream(newFile);
+				ObjectOutputStream output = new ObjectOutputStream(fos);
+				output.writeObject(currentContacts);
+				output.writeObject(allMeetings);
+				output.close();
+				fos.close();
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
