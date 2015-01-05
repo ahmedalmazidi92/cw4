@@ -24,7 +24,7 @@ public class ContactManagerImpl implements ContactManager {
 	public ContactManagerImpl() {
 		this.currentContacts = new HashSet<Contact>();
 		this.allMeetings = new HashSet<Meeting>();
-		this.currentDate = new GregorianCalendar();
+		this.currentDate = new GregorianCalendar(2015, 01, 05);
 	}
 	
 

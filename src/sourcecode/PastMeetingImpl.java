@@ -13,6 +13,11 @@ public class PastMeetingImpl extends MeetingImpl implements PastMeeting {
 		this.notes = notes;
 		
 	}
+	
+	public PastMeetingImpl(PastMeeting oldMeeting, String notes){
+		super(oldMeeting.getDate(), oldMeeting.getContacts());
+		this.notes = notes;
+	}
 
 	public String getNotes() {
 		return notes;
