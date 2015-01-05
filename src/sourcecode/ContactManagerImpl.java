@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -35,7 +36,12 @@ public class ContactManagerImpl implements ContactManager {
 			try {
 				FileInputStream fis = new FileInputStream(newFile);
 				ObjectInputStream input = new ObjectInputStream(fis);
-				this.allMeetings = 
+				this.allMeetings = (HashSet<Meeting>) input.readObject();
+				this.currentContacts = (HashSet<Contact>) input.readObject();
+				input.close();
+				fis.close();
+			} catch (IOException e){
+				e.printStackTrace();
 			}
 		}
 	}
