@@ -2,7 +2,18 @@ package sourcecode;
 import java.io.Serializable;
 
 import interfaces.Contact;
-
+/**
+ * Implementation of the interface Contact
+ * @author Ahmed
+ * 
+ * A contact is a person we are making business with or may
+ * do in the future.
+ * 
+ * The static variable count is used to represent the number
+ * of objects of type ContactImpl that have been created. It
+ * is also used to assign a unique ID to the contact.
+ *
+ */
 public class ContactImpl implements Contact, Serializable{
 	private int id;
 	private String name;
@@ -16,23 +27,51 @@ public class ContactImpl implements Contact, Serializable{
 		this.id = count;
 	}
 	
+	/**
+	 * Returns the ID of the contact.
+	 * 
+	 * @return the ID of the contact.
+	 */
 	public int getId() {
 		return id;
 	}
-
+	
+	/**
+	 * Returns the name of the contact.
+	 * 
+	 * @return the name of the contact.
+	 */
 	public String getName() {
 		return name;
 	}
 
+	/**
+	 * Returns our notes about the contact, if any.
+	 * 
+	 * If we have not written anything about the contact,
+	 * an empty string is returned
+	 * 
+	 * @return a string with notes about the contact, maybe empty
+	 */
 	public String getNotes() {
 		return notes;
 	}
 
+	/**
+	 * Add notes about the contact.
+	 * 
+	 * @param note the notes to be added
+	 */
 	public void addNotes(String note) {
 		this.notes = note;
 		
 	}
 	
+	/**
+	 * Sets the ID of the contact
+	 * 
+	 * @param id the ID to be set for the contact
+	 */
 	public void setId(int id) {
 		this.id = id;
 	}
