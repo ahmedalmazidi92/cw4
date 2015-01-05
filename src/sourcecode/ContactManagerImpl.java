@@ -81,6 +81,10 @@ public class ContactManagerImpl implements ContactManager {
 				throw new IllegalArgumentException("Unknown contacts");
 		}
 	}
+	
+	private Optional<Meeting> isIDReal(int id){
+		return allMeetings.stream().filter((m) -> m.getId() == id).findAny();
+	}
 
 	@Override
 	public List<Meeting> getFutureMeetingList(Contact contact) { 
