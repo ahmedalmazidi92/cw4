@@ -284,6 +284,9 @@ public class ContactManagerTest {
 		File testFile = new File("contacts.txt");
 		boolean actual = testFile.exists();
 		assertTrue(actual);
+		
+		ContactManager test2 = new ContactManagerImpl();
+		System.out.println(test2.getContacts(1, 2, 3));
 	}
 	
 }
