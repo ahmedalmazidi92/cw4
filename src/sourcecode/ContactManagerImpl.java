@@ -11,10 +11,10 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.HashSet;
-import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
+import java.util.TreeSet;
 import java.util.function.Predicate;
 
 import interfaces.Contact;
@@ -41,14 +41,14 @@ public class ContactManagerImpl implements ContactManager {
 	@SuppressWarnings("unchecked")
 	public ContactManagerImpl() {
 		this.currentContacts = new HashSet<Contact>();
-		this.allMeetings = new LinkedHashSet<Meeting>();
+		this.allMeetings = new TreeSet<Meeting>();
 		this.currentDate = new GregorianCalendar(2015, 01, 05);
 		File newFile = new File("contacts.txt");
 		if(newFile.exists()){
 			try {
 				FileInputStream fis = new FileInputStream(newFile);
 				ObjectInputStream input = new ObjectInputStream(fis);
-				this.allMeetings = (LinkedHashSet<Meeting>) input.readObject();
+				this.allMeetings = (TreeSet<Meeting>) input.readObject();
 				System.out.println("Meetings successfully added");
 				this.currentContacts = (HashSet<Contact>) input.readObject();
 				System.out.println("Contacts successfully added");
