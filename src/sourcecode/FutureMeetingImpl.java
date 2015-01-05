@@ -15,6 +15,11 @@ import java.util.Set;
  */
 public class FutureMeetingImpl extends MeetingImpl implements FutureMeeting, Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2666011443144235544L;
+
 	public FutureMeetingImpl(Calendar date, Set<Contact> contacts) {
 		super(date, contacts);
 	}

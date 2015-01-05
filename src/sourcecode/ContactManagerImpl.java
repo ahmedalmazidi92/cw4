@@ -7,6 +7,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
@@ -28,7 +29,11 @@ import interfaces.PastMeeting;
  * 
  * A class to manager your contacts and meetings.
  */
-public class ContactManagerImpl implements ContactManager {
+public class ContactManagerImpl implements ContactManager, Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5459765702170662576L;
 	private Set<Contact> currentContacts;
 	private List<Meeting> allMeetings;
 	private Calendar currentDate;

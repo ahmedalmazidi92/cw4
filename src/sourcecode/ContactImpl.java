@@ -15,6 +15,10 @@ import interfaces.Contact;
  *
  */
 public class ContactImpl implements Contact, Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4309387688014069358L;
 	private int id;
 	private String name;
 	private String notes;
