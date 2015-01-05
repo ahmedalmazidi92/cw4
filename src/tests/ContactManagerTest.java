@@ -272,7 +272,7 @@ public class ContactManagerTest {
 	}
 	
 	@Test
-	public void testFlush() {
+	public void testFlush() { //works
 		contacts = test1.getContacts(1, 2, 3);
 		test1.addFutureMeeting(contacts, date1);
 		test1.addNewPastMeeting(contacts, date2, "");
