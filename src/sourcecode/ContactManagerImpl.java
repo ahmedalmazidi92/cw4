@@ -42,8 +42,7 @@ public class ContactManagerImpl implements ContactManager {
 
 	@Override
 	public PastMeeting getPastMeeting(int id) {
-		Predicate<Meeting> matchID = (m) -> m.getId() == id;
-		Optional<Meeting> result = allMeetings.stream().filter(matchID).findAny();
+		Optional<Meeting> result = isIDReal(id);
 		if(!result.isPresent()) {
 			return null;
 		}else if(result.get() instanceof FutureMeeting) {
@@ -55,7 +54,7 @@ public class ContactManagerImpl implements ContactManager {
 
 	@Override
 	public FutureMeeting getFutureMeeting(int id) {
-		Optional<Meeting> result = allMeetings.stream().filter((m) -> m.getId() == id).findAny();
+		Optional<Meeting> result = isIDReal(id);
 		if(!result.isPresent()) {
 			return null;
 		}else if(result.get()instanceof PastMeeting) {
@@ -67,7 +66,7 @@ public class ContactManagerImpl implements ContactManager {
 
 	@Override
 	public Meeting getMeeting(int id) {
-		Optional<Meeting> result = allMeetings.stream().filter((m) -> m.getId() ==id).findAny();
+		Optional<Meeting> result = isIDReal(id);
 		if(!result.isPresent()){
 			return null;
 		}else {
@@ -143,8 +142,7 @@ public class ContactManagerImpl implements ContactManager {
 
 	@Override
 	public void addMeetingNotes(int id, String text) {
-		Predicate<Meeting> matchID = (m) -> m.getId() == id;
-		Optional<Meeting> result = allMeetings.stream().filter(matchID).findAny();
+		Optional<Meeting> result = isIDReal(id);
 		if(text == null) {
 			throw new NullPointerException("Null String is not an appropriate parameter");
 		}else if (!result.isPresent()) {
