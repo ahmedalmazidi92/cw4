@@ -57,7 +57,7 @@ public class ContactImpl implements Contact, Serializable{
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return ("[ID: " + getId() + ", Name: " + getName() + ", Notes: " + getNotes() + "]");
+		return ("(ID: " + getId() + ", Name: " + getName() + ", Notes: " + getNotes() + ")");
 	}
 
 }
