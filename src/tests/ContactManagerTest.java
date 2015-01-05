@@ -13,6 +13,7 @@ import sourcecode.FutureMeetingImpl;
 import sourcecode.MeetingImpl;
 import sourcecode.PastMeetingImpl;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -268,7 +269,17 @@ public class ContactManagerTest {
 	
 	@Test
 	public void testFlush() {
+		contacts = test1.getContacts(1, 2, 3);
+		test1.addFutureMeeting(contacts, date1);
+		test1.addNewPastMeeting(contacts, date2, "");
+		test1.addFutureMeeting(contacts, date3);
+		test1.addFutureMeeting(contacts, currentDate);
+		test1.addMeetingNotes(4, "test");
+		test1.flush();
 		
+		File testFile = new File("src/contacts.txt");
+		boolean actual = testFile.exists();
+		assertTrue(actual);
 	}
 	
 }
