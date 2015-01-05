@@ -150,9 +150,9 @@ public class ContactManagerImpl implements ContactManager {
 		}else if (result.get().getDate().after(currentDate)) {
 			throw new IllegalStateException("Meeting with ID " + id + " has not occured yet");
 		}else {
-			PastMeeting formerFutureMeeting = new PastMeetingImpl(result.get().getDate(), result.get().getContacts(), text);
+			addNewPastMeeting(result.get().getContacts(), result.get().getDate(), text);
+			((MeetingImpl) getPastMeeting(MeetingImpl.count)).setId(MeetingImpl.count - 1);
 			MeetingImpl.count--;
-			((MeetingImpl) formerFutureMeeting).setId(result.get().getId());
 			allMeetings.remove(result.get());
 		}
 		
