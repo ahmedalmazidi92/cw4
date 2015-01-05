@@ -1,4 +1,4 @@
-package tests;
+
 import interfaces.Contact;
 import interfaces.ContactManager;
 import interfaces.Meeting;
@@ -209,8 +209,8 @@ public class ContactManagerTest {
 		contacts = test1.getContacts(1, 2);
 		test1.addNewPastMeeting(contacts, date2, "");
 		List<Meeting> expected = new ArrayList<Meeting>();
-		expected.add(test1.getMeeting(2));
 		expected.add(test1.getMeeting(1));
+		expected.add(test1.getMeeting(2));
 		List<Meeting> actual = test1.getFutureMeetingList(date2);
 		assertEquals(expected, actual);
 		
