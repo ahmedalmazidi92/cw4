@@ -5,7 +5,14 @@ import java.util.Set;
 
 import interfaces.Contact;
 import interfaces.PastMeeting;
-
+/**
+ * An implementation of the interface PastMeeting
+ * @author Ahmed
+ *
+ * A meeting that was held in the past.
+ * 
+ * It includes your notes about what happened and what was agreed.
+ */
 public class PastMeetingImpl extends MeetingImpl implements PastMeeting, Serializable {
 	String notes;
 
@@ -15,10 +22,23 @@ public class PastMeetingImpl extends MeetingImpl implements PastMeeting, Seriali
 		
 	}
 
+	/**
+	 * Returns the notes from the meeting.
+	 * 
+	 * If there are no notes, the empty string is returned.
+	 * 
+	 * @return the notes from the meeting.
+	 */
 	public String getNotes() {
 		return notes;
 	}
 	
+	/**
+	 * Sets the notes for the meeting. If there are any,
+	 * it overwrites them.
+	 *  
+	 * @param notes the notes to be set
+	 */
 	public void setNotes(String notes) {
 		this.notes = notes;
 	}
