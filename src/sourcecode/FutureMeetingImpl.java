@@ -6,7 +6,13 @@ import interfaces.FutureMeeting;
 import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Set;
-
+/**
+ * An implementation of the Interface FutureMeeting
+ * @author Ahmed
+ * A meeting to be held in the future
+ * 
+ * There are no meetings. Its purposes are for type checking/downcasting
+ */
 public class FutureMeetingImpl extends MeetingImpl implements FutureMeeting, Serializable {
 
 	public FutureMeetingImpl(Calendar date, Set<Contact> contacts) {
