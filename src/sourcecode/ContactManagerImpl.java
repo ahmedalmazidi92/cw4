@@ -48,7 +48,9 @@ public class ContactManagerImpl implements ContactManager {
 				FileInputStream fis = new FileInputStream(newFile);
 				ObjectInputStream input = new ObjectInputStream(fis);
 				this.allMeetings = (HashSet<Meeting>) input.readObject();
+				System.out.println("Meetings successfully added");
 				this.currentContacts = (HashSet<Contact>) input.readObject();
+				System.out.println("Contacts successfully added");
 				input.close();
 				fis.close();
 			} catch (IOException e){
@@ -355,7 +357,9 @@ public class ContactManagerImpl implements ContactManager {
 				FileOutputStream fos = new FileOutputStream(newFile);
 				ObjectOutputStream output = new ObjectOutputStream(fos);
 				output.writeObject(currentContacts);
+				System.out.println("Contacts successfully written");
 				output.writeObject(allMeetings);
+				System.out.println("Meeting successfully written");
 				output.close();
 				fos.close();
 			} catch (FileNotFoundException e) {
