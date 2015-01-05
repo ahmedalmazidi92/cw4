@@ -134,7 +134,7 @@ public class ContactManagerTest {
 		String name = "Simon";
 		String notes = "Test";
 		test1.addNewContact(name, notes);
-		assertFalse(((ContactManagerImpl)test1).isEmpty());
+		assertFalse(((ContactManagerImpl)test1).getContacts(1).isEmpty());
 	}
 	
 	@Test(expected = NullPointerException.class) //works
