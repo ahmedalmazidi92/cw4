@@ -8,18 +8,13 @@ import java.util.Calendar;
 import java.util.Set;
 /**
  * An implementation of the Interface FutureMeeting
- * @author Ahmed
+ * @author Ahmed Almazidi
  * A meeting to be held in the future
  * 
  * There are no meetings. Its purposes are for type checking/downcasting
  */
 public class FutureMeetingImpl extends MeetingImpl implements FutureMeeting, Serializable {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -2666011443144235544L;
-
+	
 	public FutureMeetingImpl(Calendar date, Set<Contact> contacts) {
 		super(date, contacts);
 	}

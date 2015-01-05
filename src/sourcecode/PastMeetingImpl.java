@@ -7,7 +7,7 @@ import interfaces.Contact;
 import interfaces.PastMeeting;
 /**
  * An implementation of the interface PastMeeting
- * @author Ahmed
+ * @author Ahmed Almazidi
  *
  * A meeting that was held in the past.
  * 

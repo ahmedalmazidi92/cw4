@@ -25,15 +25,11 @@ import interfaces.Meeting;
 import interfaces.PastMeeting;
 /**
  * An implementation of the interface ContactManager
- * @author Ahmed
+ * @author Ahmed Almazidi
  * 
  * A class to manager your contacts and meetings.
  */
 public class ContactManagerImpl implements ContactManager, Serializable {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -5459765702170662576L;
 	private Set<Contact> currentContacts;
 	private List<Meeting> allMeetings;
 	private Calendar currentDate;

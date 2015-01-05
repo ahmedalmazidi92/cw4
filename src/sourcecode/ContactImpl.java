@@ -4,7 +4,7 @@ import java.io.Serializable;
 import interfaces.Contact;
 /**
  * Implementation of the interface Contact
- * @author Ahmed
+ * @author Ahmed Almazidi
  * 
  * A contact is a person we are making business with or may
  * do in the future.
@@ -15,10 +15,6 @@ import interfaces.Contact;
  *
  */
 public class ContactImpl implements Contact, Serializable{
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 4309387688014069358L;
 	private int id;
 	private String name;
 	private String notes;
