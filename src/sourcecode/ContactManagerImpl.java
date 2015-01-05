@@ -1,6 +1,7 @@
 package sourcecode;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -29,6 +30,14 @@ public class ContactManagerImpl implements ContactManager {
 		this.currentContacts = new HashSet<Contact>();
 		this.allMeetings = new HashSet<Meeting>();
 		this.currentDate = new GregorianCalendar(2015, 01, 05);
+		File newFile = new File("src/contacts.txt");
+		if(newFile.exists()){
+			try {
+				FileInputStream fis = new FileInputStream(newFile);
+				ObjectInputStream input = new ObjectInputStream(fis);
+				this.allMeetings = 
+			}
+		}
 	}
 	
 
