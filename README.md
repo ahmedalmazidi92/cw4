@@ -8,4 +8,4 @@ This project consists of a class called Contact Manager which contains a list of
 The directories of the interfaces must be included in the classpath in order for the program to work. 
 
 Known issues with the JUnit Tests:
-Due to an issue with Eclipse, the JUnit tests do not work while the package is declared. If the tests do not work, simply remove 'package tests' on the top of each test file
+Due to an issue with Eclipse, the JUnit tests do not work while the package is declared, if the tests are done on the command terminal. If the tests do not work, simply remove 'package tests' on the top of each test file, or run them on Eclipse.
