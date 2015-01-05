@@ -63,4 +63,10 @@ public class MeetingImpl implements Meeting, Comparator<Meeting>, Serializable {
 		
 		return 0;
 	}
+	
+	@Override
+	public String toString() {
+		return ("Meeting [ID: " + getId() + ", Date: " + (getDate().get(Calendar.DATE)) + (getDate().get(Calendar.MONTH)) + (getDate().get(Calendar.YEAR)) 
+				+ ", Contacts: " + getContacts());
+	}
 }
