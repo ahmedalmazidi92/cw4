@@ -49,10 +49,10 @@ public class ContactManagerImpl implements ContactManager, Serializable {
 			try {
 				FileInputStream fis = new FileInputStream(newFile);
 				ObjectInputStream input = new ObjectInputStream(fis);
-				this.allMeetings = (ArrayList<Meeting>) input.readObject();
-				System.out.println("Meetings successfully added");
 				this.currentContacts = (HashSet<Contact>) input.readObject();
 				System.out.println("Contacts successfully added");
+				this.allMeetings = (ArrayList<Meeting>) input.readObject();
+				System.out.println("Meetings successfully added");
 				input.close();
 				fis.close();
 			} catch (IOException e){
