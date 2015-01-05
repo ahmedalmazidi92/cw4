@@ -19,6 +19,10 @@ import interfaces.Meeting;
  * 
  */
 public class MeetingImpl implements Meeting, Comparator<Meeting>, Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2885050652332298626L;
 	private int id;
 	private Calendar date;
 	private Set<Contact> contacts;
