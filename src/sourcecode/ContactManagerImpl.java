@@ -27,11 +27,12 @@ public class ContactManagerImpl implements ContactManager {
 	private Set<Meeting> allMeetings;
 	private Calendar currentDate;
 	
+	@SuppressWarnings("unchecked")
 	public ContactManagerImpl() {
 		this.currentContacts = new HashSet<Contact>();
 		this.allMeetings = new HashSet<Meeting>();
 		this.currentDate = new GregorianCalendar(2015, 01, 05);
-		File newFile = new File("src/contacts.txt");
+		File newFile = new File("contacts.txt");
 		if(newFile.exists()){
 			try {
 				FileInputStream fis = new FileInputStream(newFile);
@@ -229,20 +230,9 @@ public class ContactManagerImpl implements ContactManager {
 
 	@Override
 	public void flush() {
-		File newFile = new File("src/contacts.txt");
+		File newFile = new File("contacts.txt");
 		if(newFile.exists()){
-			try {
-				FileOutputStream fos = new FileOutputStream(newFile, false);
-				ObjectOutputStream output = new ObjectOutputStream(fos);
-				output.writeObject(currentContacts);
-				output.writeObject(allMeetings);
-				output.close();
-				fos.close();
-			} catch (FileNotFoundException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+			newFile.delete();
 		}else {
 			try {
 				FileOutputStream fos = new FileOutputStream(newFile);
