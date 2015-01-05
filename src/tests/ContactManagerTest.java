@@ -1,4 +1,4 @@
-package tests
+package tests;
 import interfaces.Contact;
 import interfaces.ContactManager;
 import interfaces.Meeting;
