@@ -47,6 +47,7 @@ public class ContactManagerTest {
 	public void cleanUp() {
 		MeetingImpl.count = 0;
 		ContactImpl.count = 0;
+		test1 = null;
 	}
 	
 	@Test
@@ -263,6 +264,11 @@ public class ContactManagerTest {
 		contacts = test1.getContacts(1, 2, 3);
 		test1.addNewPastMeeting(contacts, date2, "");
 		test1.addMeetingNotes(1, null);
+	}
+	
+	@Test
+	public void testFlush() {
+		
 	}
 	
 }
